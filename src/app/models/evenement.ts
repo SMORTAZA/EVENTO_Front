@@ -4,7 +4,7 @@ export class Evenement {
     budget:number=0;
     categorie:String='';
     nom:String='';
-    dateDebut:Date=;
-    dateFin:Date;
+    dateDebut?:Date;
+    dateFin?:Date;
 
 }

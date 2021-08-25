@@ -119,11 +119,11 @@ Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                        <tr *ngFor="let e of eventExtra">
+                                            <td>{{e.nom}}</td>
+                                            <td>{{e.categorie}}</td>
+                                            <td>{{e.budget}}</td>
+                                            <td>{{e.dateDebut}}</td>
 
 
 

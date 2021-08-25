@@ -5,12 +5,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class EvenementService {
-  private baseURL = "http://localhost:9090/gestionEvenements/evenement";
+export class CatalogueService {
+  private baseURL = "http://localhost:9090/gestionCatalogues/catalogue";
   constructor(private httpClient: HttpClient) { }
 
   public findAll():Observable<any>{
-    console.log(this.httpClient.get(this.baseURL));
     return this.httpClient.get(this.baseURL);
   }
  
