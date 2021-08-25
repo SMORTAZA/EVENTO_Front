@@ -24,6 +24,7 @@ import { ToastComponent } from './toast/toast.component';
 import { ToastsContainer } from './toast/toast-container';
 import { AdminComponent } from './admin/admin.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { ClientComponent } from './client/client.component';
 
 @NgModule({
   imports: [
@@ -51,7 +52,8 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
     ToastComponent,
     ToastsContainer,
     AdminComponent,
-    UtilisateurComponent
+    UtilisateurComponent,
+    ClientComponent
   ]
 })
 export class ComponentsModule {}

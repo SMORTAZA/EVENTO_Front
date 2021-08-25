@@ -16,6 +16,7 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { CardsComponent } from './card/card.component';
 import { ToastComponent } from './toast/toast.component';
 import { AdminComponent } from './admin/admin.component';
+import { ClientComponent } from './client/client.component';
 
 export const ComponentsRoutes: Routes = [
 	{
@@ -201,6 +202,13 @@ export const ComponentsRoutes: Routes = [
 				component: AdminComponent,
 				data: {
 					title: 'Admin',
+				}
+			},
+			{
+				path: 'client',
+				component: ClientComponent,
+				data: {
+					title: 'Client',
 				}
 			}
 		]

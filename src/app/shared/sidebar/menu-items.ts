@@ -144,6 +144,14 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
+  },
+  {
+    path: '/component/client',
+    title: 'Client',
+    icon: 'fa fa-id-card fa-lg ',
+    class: '',
+    extralink: false,
+    submenu: []
   }
 
 ];
