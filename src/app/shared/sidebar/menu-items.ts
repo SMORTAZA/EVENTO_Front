@@ -136,5 +136,14 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
+  },
+  {
+    path: '/component/admin',
+    title: 'Admin',
+    icon: 'fa fa-id-card fa-lg ',
+    class: '',
+    extralink: false,
+    submenu: []
   }
+
 ];
