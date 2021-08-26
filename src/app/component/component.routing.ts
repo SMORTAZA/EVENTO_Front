@@ -20,6 +20,8 @@ import { ClientComponent } from './client/client.component';
 import { PrestataireComponent } from './prestataire/prestataire.component';
 import { PrestataireOffresComponent } from './prestataire-offres/prestataire-offres.component';
 import { PrestataireProfilComponent } from './prestataire-profil/prestataire-profil.component';
+import { ClientCreationEvenementComponent } from './client-creation-evenement/client-creation-evenement.component';
+import { ClientConsultationEvenementComponent } from './client-consultation-evenement/client-consultation-evenement.component';
 
 export const ComponentsRoutes: Routes = [
 	{
@@ -212,6 +214,27 @@ export const ComponentsRoutes: Routes = [
 				component: ClientComponent,
 				data: {
 					title: 'Client',
+				}
+			},
+			{
+				path: 'client',
+				component: ClientComponent,
+				data: {
+					title: 'Client',
+				}
+			},
+			{
+				path: 'creationEvenement',
+				component: ClientCreationEvenementComponent,
+				data: {
+					title: 'Creation Evenement',
+				}
+			},
+			{
+				path: 'consultationEvenement',
+				component: ClientConsultationEvenementComponent,
+				data: {
+					title: 'Consultation Evenement',
 				}
 			},
 			{

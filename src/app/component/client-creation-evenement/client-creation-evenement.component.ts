@@ -5,12 +5,11 @@ import { CatalogueService } from 'src/app/Service/catalogue.service';
 import { EvenementService } from 'src/app/Service/evenement.service';
 
 @Component({
-  selector: 'app-client',
-  templateUrl: './client.component.html',
+  selector: 'app-client-creation-evenement',
+  templateUrl: './client-creation-evenement.component.html',
 })
-export class ClientComponent implements OnInit {
+export class ClientCreationEvenementComponent implements OnInit {
   eventExtra:any=null;
-  
   event:Evenement=new Evenement();
   constructor(private evenementService: EvenementService,
               private catalogueService:CatalogueService,

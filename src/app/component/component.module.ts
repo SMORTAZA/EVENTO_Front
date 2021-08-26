@@ -28,6 +28,8 @@ import { ClientComponent } from './client/client.component';
 import { PrestataireComponent } from './prestataire/prestataire.component';
 import { PrestataireProfilComponent } from './prestataire-profil/prestataire-profil.component';
 import { PrestataireOffresComponent } from './prestataire-offres/prestataire-offres.component';
+import { ClientConsultationEvenementComponent } from './client-consultation-evenement/client-consultation-evenement.component';
+import { ClientCreationEvenementComponent } from './client-creation-evenement/client-creation-evenement.component';
 
 @NgModule({
   imports: [
@@ -57,6 +59,8 @@ import { PrestataireOffresComponent } from './prestataire-offres/prestataire-off
     AdminComponent,
     UtilisateurComponent,
     ClientComponent,
+    ClientConsultationEvenementComponent,
+    ClientCreationEvenementComponent,
     PrestataireComponent,
     PrestataireProfilComponent,
     PrestataireOffresComponent
