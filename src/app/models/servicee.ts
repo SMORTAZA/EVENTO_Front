@@ -3,6 +3,6 @@ export class Servicee {
     tarif?:number;
     description?:string;
     image?:String;
-    avis:any;
+    
 
 }
