@@ -19,14 +19,13 @@ export class AdminComponent implements OnInit {
     this.findAllEvents();
   }
 findAllEvents(){
-  console.log(this.eventExtra);
   this.evenementService.findAll().subscribe(data=>{this.eventExtra=data});
-  console.log(this.eventExtra);
 }
 deleteEvents(id:number){
   this.evenementService.delete(id).subscribe(()=>{this.findAllEvents()})
 }
 saveEvents(){
+  console.log("save:"+this.event);
   this.evenementService.save(this.event).subscribe(()=>{this.findAllEvents();
   this.event=new Evenement();})
 }

@@ -10,7 +10,7 @@ export class EvenementService {
   constructor(private httpClient: HttpClient) { }
 
   public findAll():Observable<any>{
-    console.log(this.httpClient.get(this.baseURL));
+    
     return this.httpClient.get(this.baseURL);
   }
  
@@ -18,8 +18,8 @@ export class EvenementService {
     return this.httpClient.delete(this.baseURL+"/"+id); // permet de supprimer avec l'id dans la requete http : http://localhost:9090/gestionUsers/users/1
   }
 
-  public save(user:any){
-    return this.httpClient.post(this.baseURL,user);
+  public save(event:any){
+    return this.httpClient.post(this.baseURL,event);
   }
 
   public findOne(id:number):Observable<any>{
