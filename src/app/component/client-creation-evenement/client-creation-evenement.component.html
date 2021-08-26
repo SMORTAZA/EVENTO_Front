@@ -1,0 +1,37 @@
+<div class="animated fadeIn">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Ajouter un evenement</strong>
+            <small></small>
+          </div>
+          <form>
+          <div class="card-body">
+            <div class="form-group">
+              <label>Nom</label>
+              <input type="text" class="form-control" [(ngModel)]="event.nom" name = "nom">
+            </div>
+            <div class="form-group">
+              <label>Budget</label>
+              <input type="number" class="form-control" [(ngModel)]="event.budget" name = "budget">
+            </div>
+            <div class="form-group">
+              <label>Categorie</label>   
+              <select class=form-control>
+                <option value=un>Un</option>
+                <option value=deux>Deux</option>
+                <option value=trois>Trois</option>
+              </select>
+              <!--<input type="text" class="form-control" [(ngModel)]="event.categorie" name = "categorie">-->
+            </div>
+            <div>
+              <a href="javacript:void(0)" (click)="saveEvents()" class="btn btn btn-rounded btn-default btn-outline mb-2 mb-md-0 m-r-5">
+                <i class="ti-check text-success m-r-5"></i>
+              </a>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div><!--/.col-->
+    </div>

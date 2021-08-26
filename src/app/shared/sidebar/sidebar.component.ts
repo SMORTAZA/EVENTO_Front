@@ -15,10 +15,12 @@ export class SidebarComponent implements OnInit {
   public sidebarnavItems:RouteInfo[]=[];
   // this is for the open close
   addExpandClass(element: string) {
+    console.log("Submenu:"+element+" - "+this.showMenu);
     if (element === this.showMenu) {
       this.showMenu = '0';
     } else {
       this.showMenu = element;
+      console.log("Else : shomenu="+this.showMenu);
     }
   }
 

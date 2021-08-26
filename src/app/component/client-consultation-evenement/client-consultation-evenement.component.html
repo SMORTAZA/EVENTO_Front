@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-align-justify"></i> Liste des évènements
+             </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Budget</th>
+                        <th>Categorie</th>
+                        <th>Action</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let e of eventExtra">
+                        <td>{{e.budget}}</td>
+                        <td>{{e.categorie}}</td>
+                        <td>
+                            <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+                                <ngb-panel title="Suppr">
+                                    <ng-template ngbPanelContent>
+                                        <a href="javacript:void(0)" (click)="deleteEvents(e.idEvenement)" class="btn-rounded btn btn-default btn-outline">
+                                            <i class="ti-close text-danger m-r-5"></i>
+                                        </a>
+                                    </ng-template>
+                                </ngb-panel>
+                            </ngb-accordion> 
+                        </td>
+                        <td>
+                            <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+                                <ngb-panel title="Modif">
+                                    <ng-template ngbPanelContent>
+                                        mettre le formulaire prérempli
+                                        <a href="javacript:void(0)" (click)="deleteEvents(e.idEvenement)" class="btn btn btn-rounded btn-default btn-outline mb-2 mb-md-0 m-r-5">
+                                            <i class="ti-check text-success m-r-5"></i>
+                                        </a>
+                                    </ng-template>
+                                </ngb-panel>
+                            </ngb-accordion>   
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

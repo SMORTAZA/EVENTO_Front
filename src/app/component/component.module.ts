@@ -25,6 +25,11 @@ import { ToastsContainer } from './toast/toast-container';
 import { AdminComponent } from './admin/admin.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { ClientComponent } from './client/client.component';
+import { PrestataireComponent } from './prestataire/prestataire.component';
+import { PrestataireProfilComponent } from './prestataire-profil/prestataire-profil.component';
+import { PrestataireOffresComponent } from './prestataire-offres/prestataire-offres.component';
+import { ClientConsultationEvenementComponent } from './client-consultation-evenement/client-consultation-evenement.component';
+import { ClientCreationEvenementComponent } from './client-creation-evenement/client-creation-evenement.component';
 
 @NgModule({
   imports: [
@@ -53,7 +58,12 @@ import { ClientComponent } from './client/client.component';
     ToastsContainer,
     AdminComponent,
     UtilisateurComponent,
-    ClientComponent
+    ClientComponent,
+    ClientConsultationEvenementComponent,
+    ClientCreationEvenementComponent,
+    PrestataireComponent,
+    PrestataireProfilComponent,
+    PrestataireOffresComponent
   ]
 })
 export class ComponentsModule {}

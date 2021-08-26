@@ -25,10 +25,10 @@ export class UtilisateurComponent implements OnInit {
       () => {this.findAll()}
     )
   }
-  /*saveUser(){
+  saveUser(){
     this.utilisateurService.save(this.user).subscribe(()=> {this.findAll();
     this.user = new Utilisateur();}
     )
-  }*/
+  }
 }
 
