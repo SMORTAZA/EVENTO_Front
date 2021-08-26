@@ -1,5 +1,7 @@
 import { RouteInfo } from './sidebar.metadata';
 
+
+
 export const ROUTES: RouteInfo[] = [
   {
     path: '',
@@ -29,7 +31,7 @@ export const ROUTES: RouteInfo[] = [
     path: '/component/card',
     title: 'Card',
     icon: 'mdi mdi-blur-radial',
-    class: '',
+    class: 'has-sub',
     extralink: false,
     submenu: []
   },
@@ -152,6 +154,31 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
+  },
+  {
+    path: '/component/prestataire',
+    title: 'Prestataire',
+    icon: 'fa fa-id-card fa-lg ',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/component/prestataire-offres',
+    title: 'Prestataire offres',
+    icon: 'fa fa-id-card fa-lg ',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/component/prestataire-profil',
+    title: 'Prestataire profil',
+    icon: 'fa fa-id-card fa-lg ',
+    class: '',
+    extralink: false,
+    submenu: []
   }
 
 ];
+

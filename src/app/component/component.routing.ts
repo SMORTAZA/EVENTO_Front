@@ -17,6 +17,9 @@ import { CardsComponent } from './card/card.component';
 import { ToastComponent } from './toast/toast.component';
 import { AdminComponent } from './admin/admin.component';
 import { ClientComponent } from './client/client.component';
+import { PrestataireComponent } from './prestataire/prestataire.component';
+import { PrestataireOffresComponent } from './prestataire-offres/prestataire-offres.component';
+import { PrestataireProfilComponent } from './prestataire-profil/prestataire-profil.component';
 
 export const ComponentsRoutes: Routes = [
 	{
@@ -209,6 +212,27 @@ export const ComponentsRoutes: Routes = [
 				component: ClientComponent,
 				data: {
 					title: 'Client',
+				}
+			},
+			{
+				path: 'prestataire',
+				component: PrestataireComponent,
+				data: {
+					title: 'Prestataire',
+				}
+			},
+			{
+				path: 'prestataire-offres',
+				component: PrestataireOffresComponent,
+				data: {
+					title: 'Profil Prestataire',
+				}
+			},
+			{
+				path: 'prestataire-profil',
+				component: PrestataireProfilComponent,
+				data: {
+					title: 'Offres Prestataire',
 				}
 			}
 		]
