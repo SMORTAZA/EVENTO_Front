@@ -8,6 +8,7 @@ import { EvenementService } from 'src/app/Service/evenement.service';
 import { Avis } from 'src/app/models/avis';
 import { AvisService } from 'src/app/Service/avis.service';
 import { FormControl, Validators } from '@angular/forms';
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-admin',
@@ -55,7 +56,7 @@ export class AdminComponent implements OnInit {
   event:Evenement=new Evenement();
   abonnement:Abonnement=new Abonnement();
   avis:Avis=new Avis();
-  constructor(private evenementService:EvenementService,private catalogueService:CatalogueService,private adresseService:AdresseService, private abonnementService:AbonnementService, private avisService:AvisService) { }
+  constructor(private evenementService:EvenementService,private catalogueService:CatalogueService,private adresseService:AdresseService, private abonnementService:AbonnementService, private avisService:AvisService, private appService:AppService) { }
 
   currentRate = 8;
 	currentRate2 = 0;
@@ -65,6 +66,9 @@ export class AdminComponent implements OnInit {
 	// for form integration
 	ctrl = new FormControl(null, Validators.required);
 
+	authentificated(){
+		return this.appService.authenticated;
+	  }
 	toggle() {
 		if (this.ctrl.disabled) {
 			this.ctrl.enable();

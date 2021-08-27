@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppService } from 'src/app/app.service';
 //declare var $: any;
 
 @Component({
@@ -11,5 +14,10 @@ export class NavigationComponent {
 
   public showSearch = false;
 
-  constructor() {}
+  constructor(private httpClient:HttpClient,private appService:AppService,private router:Router) {}
+  logout(){
+    this.httpClient.post("htpp://localhost:9090/logout",{}).subscribe(()=> {this.appService.authenticated=false;
+  this.router.navigateByUrl('/login');
+})
+}
 }
