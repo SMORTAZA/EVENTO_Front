@@ -48,3 +48,92 @@
         </div>
     </div>
 </div>
+<!---->
+<!--Recherche events-->
+<div class=" content">
+    <div class="row">
+        <div class=" col-md-12">
+            <div class=" card">
+                <div class=" card-header">
+                    <h4 class="card-title font-16 text-uppercase">Recherche d'évènement</h4>
+                </div>
+                <div class=" card-body">
+                    <form>
+                        <div class=" row">
+                            <div class=" col-md-6 pr-md-1">
+                                <div class=" form-group">
+                                    <label> ID de l'évènement recherché </label>
+                                    <input class=" form-control" placeholder="ID" type="text" [(ngModel)]="event.idEvenement" />
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-rounded btn-outline-primary">Rechercher</button>
+                        <!--<button type="button" class="btn btn-rounded btn-outline-primary" (click)="getEventsById(event.idEvenement)">Rechercher</button>-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+<!--Affiche events-->
+<div class="row">
+    <!-- column -->
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <!-- title -->
+                <div class="d-md-flex align-items-center">
+                    <div>
+                        <h4 class="card-title font-16 text-uppercase">Liste des évènements</h4>
+                        <!-- <h5 class="card-subtitle">Overview of Top Selling Items</h5> -->
+                    </div>
+                    <div class="ml-auto">
+                        <div class="dl">
+                            <select class="form-control">
+                                <option value="0" selected>March 2017</option>
+                                <option value="1">April 2017</option>
+                                <option value="2">May 2017</option>
+                                <option value="3">June 2017</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table v-middle nowrap">
+                        <thead>
+                            <tr>
+                                <th class="border-top-0">#</th>
+                                <th class="border-top-0">NAME</th>
+                                <th class="border-top-0">CATEGORIE</th>
+                                <th class="border-top-0">BUDGET</th>
+                                <th class="border-top-0">DATE DEBUT</th>
+                                <th class="border-top-0">DATE FIN</th>
+                                <th class="border-top-0"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let e of eventExtra">
+
+                                <td>{{e.idEvenement}}</td>
+                                <td>{{e.nom}}</td>
+                                <td>{{e.categorie}}</td>
+                                <td>{{e.budget}}</td>
+                                <td>{{e.dateDebut}}</td>
+                                <td>{{e.dateFin}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-rounded btn btn-danger" (click)="deleteEvents(e.idEvenement)"><i class="far fa-trash-alt"></i></button>
+
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+  

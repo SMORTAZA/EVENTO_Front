@@ -30,6 +30,7 @@ import { PrestataireProfilComponent } from './prestataire-profil/prestataire-pro
 import { PrestataireOffresComponent } from './prestataire-offres/prestataire-offres.component';
 import { ClientConsultationEvenementComponent } from './client-consultation-evenement/client-consultation-evenement.component';
 import { ClientCreationEvenementComponent } from './client-creation-evenement/client-creation-evenement.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { ClientCreationEvenementComponent } from './client-creation-evenement/cl
     RouterModule.forChild(ComponentsRoutes),
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    MatIconModule
   ],
   declarations: [
     NgbdpregressbarBasicComponent,

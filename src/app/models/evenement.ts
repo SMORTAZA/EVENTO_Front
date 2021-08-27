@@ -1,5 +1,5 @@
 export class Evenement {
-    idEvenement:number=0;
+    idEvenement?:number;
     description:String='';
     budget:number=0;
     categorie:String='';

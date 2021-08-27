@@ -23,7 +23,7 @@ export const recentSales: RecentSale[] = [
     },
     {
         id: 3,
-        Name: 'Ample Admin',
+        Name: 'Ample ',
         Status: 'EXTENDED',
         Date: new Date('03/25/2017'),
         Price: 1250
