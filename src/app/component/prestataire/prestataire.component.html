@@ -1,1 +1,6 @@
 <p>prestataire works!</p>
+<div [hidden]="!authenticated()">
+    <div [hidden]="!isAdmin()">Admin connecté</div>
+    <div [hidden]="!isClient()">Client connecté</div>
+    <div [hidden]="!isPrestataire()">Prestataire connecté</div>
+</div>

@@ -8,6 +8,9 @@ import { Injectable } from '@angular/core';
 export class AppService {
   responseArr:any;
   authenticated = false;
+  isAdmin=false;
+  isClient=false;
+  isPrestataire=false;
   role:any;
   constructor(private httpClient:HttpClient) { }
   authenticate(credentials:any, callback:any){
@@ -20,7 +23,19 @@ export class AppService {
     this.responseArr = response;
     if(this.responseArr['username']){
         this.authenticated = true;
-        console.log(this.responseArr['role']);
+        //console.log(this.responseArr);
+        //Boucle pour donner les rôles
+        for(let i=0;i<this.responseArr['roles'].length;i++){
+          if (this.responseArr['roles'][i]['idRole']==1){
+            this.isAdmin=true
+          }
+          if (this.responseArr['roles'][i]['idRole']==2){
+            this.isClient=true
+          }
+          if (this.responseArr['roles'][i]['idRole']==3){
+            this.isPrestataire=true
+          }
+      }
       }
       else{
         this.authenticated = false

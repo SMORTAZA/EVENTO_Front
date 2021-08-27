@@ -19,6 +19,9 @@ export class NavigationComponent {
     
     this.httpClient.post("http://localhost:9090/logout", {}).subscribe(() => {  
     this.appService.authenticated = false;
+    this.appService.isAdmin = false;
+    this.appService.isClient = false;
+    this.appService.isPrestataire = false;
       this.router.navigateByUrl('/component/login');
     })
 
