@@ -9,6 +9,7 @@ import { Avis } from 'src/app/models/avis';
 import { AvisService } from 'src/app/Service/avis.service';
 import { FormControl, Validators } from '@angular/forms';
 import { AppService } from 'src/app/app.service';
+import { RecentSale, recentSales } from 'src/app/dashboard/dashboard-components/recent-table/recent-table-data';
 
 @Component({
   selector: 'app-admin',
@@ -48,6 +49,7 @@ import { AppService } from 'src/app/app.service';
 		`
 	]
 })
+
 export class AdminComponent implements OnInit {
   eventExtra:any=null;
   abonnementExtra:any=null;
@@ -56,6 +58,9 @@ export class AdminComponent implements OnInit {
   event:Evenement=new Evenement();
   abonnement:Abonnement=new Abonnement();
   avis:Avis=new Avis();
+  
+
+
   constructor(private evenementService:EvenementService,private catalogueService:CatalogueService,private adresseService:AdresseService, private abonnementService:AbonnementService, private avisService:AvisService, private appService:AppService) { }
 
   currentRate = 8;
@@ -66,7 +71,7 @@ export class AdminComponent implements OnInit {
 	// for form integration
 	ctrl = new FormControl(null, Validators.required);
 
-	authentificated(){
+	authenticated(){
 		return this.appService.authenticated;
 	  }
 	toggle() {
@@ -134,6 +139,7 @@ getAvisById(id:number){
 
 
 }
+
 
 
 
