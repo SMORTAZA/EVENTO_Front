@@ -10,7 +10,6 @@ import { UtilisateurService } from 'src/app/Service/utilisateur.service';
   styleUrls: ['./prestataire-profil.component.css']
 })
 export class PrestataireProfilComponent implements OnInit {
-
   constructor(private httpClient: HttpClient, private utilisateurService:UtilisateurService) { }
   loggedUser:Utilisateur=new Utilisateur();
 
