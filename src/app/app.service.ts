@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 export class AppService {
   responseArr:any;
   authenticated = false;
+  role:any;
   constructor(private httpClient:HttpClient) { }
   authenticate(credentials:any, callback:any){
     const headers = new HttpHeaders(
@@ -16,10 +17,10 @@ export class AppService {
       } : {}
     );
     this.httpClient.get('http://localhost:9090/login/user', {headers: headers}).subscribe(response => {
-    console.log("je suis response:"+response) 
     this.responseArr = response;
     if(this.responseArr['username']){
         this.authenticated = true;
+        console.log(this.responseArr['role']);
       }
       else{
         this.authenticated = false

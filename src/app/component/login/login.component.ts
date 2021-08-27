@@ -5,8 +5,7 @@ import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
 
@@ -16,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   }
   login(){
-    this.appService.authenticate(this.credentials,() => {this.router.navigateByUrl("/base/tables")});
+    this.appService.authenticate(this.credentials,() => {this.router.navigateByUrl("/component/prestataire")});
     return false;
   }
 
