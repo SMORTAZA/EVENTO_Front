@@ -1,3 +1,5 @@
+import { Role } from "./role";
+
 export class Utilisateur {
     idUtilisateur:number=0;
     nom:string="";
@@ -11,4 +13,6 @@ export class Utilisateur {
     description:string="";
     contact:string="";
     
+    //Role
+    role ?: Role;
 }
