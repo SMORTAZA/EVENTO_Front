@@ -16,8 +16,8 @@ export class NavigationComponent {
 
   constructor(private httpClient:HttpClient,private appService:AppService,private router:Router) {}
   logout(){
-    this.httpClient.post("htpp://localhost:9090/logout",{}).subscribe(()=> {this.appService.authenticated=false;
-  this.router.navigateByUrl('/login');
+    this.httpClient.post("http://localhost:9090/logout",{}).subscribe(()=> {this.appService.authenticated=false;
+  this.router.navigateByUrl('/component/login');
 })
 }
 }

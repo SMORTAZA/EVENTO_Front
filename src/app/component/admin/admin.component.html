@@ -1,5 +1,5 @@
 <div class=" content">
-    <div [hidden]="!authentificated()">
+    <div [hidden]="!authenticated()">
         <div class=" row">
             <div class=" col-md-12">
                 <div class=" card">
@@ -257,14 +257,14 @@
                                                 <div class=" col-md-6 pr-md-1">
                                                     <div class=" form-group">
                                                         <label> Commentaire </label>
-                                                        <input class=" form-control" [(ngModel)]="avis.commentaire" name="commentaire" placeholder="commentaire" type="text" />
+                                                        <textarea class=" form-control" [(ngModel)]="avis.commentaire" name="commentaire" placeholder="commentaire" type="text"></textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class=" col-md-6 pl-md-1">
                                                     <div class=" form-group">
                                                         <label for="exampleInputEmail1"> Note</label>
-                                                        <input class=" form-control" [(ngModel)]="avis.note" name="note" placeholder="note" type="text" />
+                                                        <input class=" form-control" [(ngModel)]="avis.note" name="note" placeholder="note" type="number" />
                                                         <ng-template #t let-fill="fill">
                                                             <span *ngIf="fill === 100" class="heart full">&hearts;</span>
                                                             <span *ngIf="fill === 0" class="heart">&hearts;</span>
@@ -275,7 +275,7 @@
 
                                                         <ngb-rating [(rate)]="currentRate2" [starTemplate]="t" [readonly]="false" max="10"></ngb-rating>
                                                         <div>Rate: <b>{{currentRate2}}</b></div>
-                                                        <button class="btn btn-sm btn-outline-primary" [(ngModel)]="avis.note" name="note" (click)="currentRate2 =0">0</button>
+                                                        <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 =0">0</button>
                                                         <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 2">2</button>
                                                         <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 4">4</button>
                                                         <button class="btn btn-sm btn-outline-primary" (click)="currentRate2 = 5">5</button>
@@ -347,7 +347,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div [hidden]="authentificated()">
+                                <div [hidden]="authenticated()">
 
                                     <a>identification requise </a>
                                 </div>
