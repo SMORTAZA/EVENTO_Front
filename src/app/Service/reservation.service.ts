@@ -17,6 +17,8 @@ export class ReservationService {
   }
 
   public save(user:any){
+    console.log("url reservations : " + this.baseURL);
+    console.log("service : " + user);
     return this.httpClient.post(this.baseURL,user);
   }
 
