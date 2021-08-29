@@ -33,6 +33,8 @@ export class ClientCreationEvenementComponent implements OnInit {
     this.event=new Evenement();})
   }
   findAllServices(){
+    console.log("before" + this.serviceExtra);
     this.serviceService.findAll().subscribe(data=>{this.serviceExtra=data});
+    console.log("after" + this.serviceExtra);
   }
 }

@@ -10,6 +10,7 @@ export class ServiceeService {
   constructor(private httpClient: HttpClient) {}
 
   public findAll():Observable<any>{
+    console.log("dans service.ts : " + this.baseURL);
     return this.httpClient.get(this.baseURL);
   }
 

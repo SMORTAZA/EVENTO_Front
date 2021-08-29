@@ -6,8 +6,7 @@ import { UtilisateurService } from 'src/app/Service/utilisateur.service';
 
 @Component({
   selector: 'app-prestataire-profil',
-  templateUrl: './prestataire-profil.component.html',
-  styleUrls: ['./prestataire-profil.component.css']
+  templateUrl: './prestataire-profil.component.html'
 })
 export class PrestataireProfilComponent implements OnInit {
   constructor(private httpClient: HttpClient, private utilisateurService:UtilisateurService) { }

@@ -4,17 +4,9 @@
     <div class=" col-md-12">
       <div class=" card">
         <div class=" card-header">
-          <div class = "row" float="center">
-            <div>
-            <!--<h3 class=" title">Total</h3>-->
+          <div>
             <mat-icon>shopping_basket</mat-icon>
-            ou 
-            <mat-icon>shopping_cart</mat-icon>         
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
-            </div>
-            <div float="right">
-              <label>€</label>
-            </div>
           </div>
         </div>
       </div>
@@ -90,7 +82,7 @@
               <tbody>
                   <tr *ngFor = "let s of serviceExtra">
                       <!--<td><label class="checkbox"><input type="checkbox">{{s.image}}</label></td>-->
-                      <td><label class="checkbox"><input type="checkbox" [(ngModel)]="s.idService" name="idService"></label></td>
+                      <td><label class="checkbox"><input type="checkbox"></label></td>
                       <td>{{s.description}}</td>
                       <td>{{s.tarif}}</td>
                   </tr>

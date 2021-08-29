@@ -30,8 +30,6 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { LoginComponent } from './component/login/login.component';
 import { UtilisateurService } from './Service/utilisateur.service';
 import { AppService } from './app.service';
-import { MatIconModule } from '@angular/material/icon';
-
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -52,7 +50,6 @@ export class XhrInterceptor implements HttpInterceptor{
 
 @NgModule({
   declarations: [
-    MatIconModule,
     AppComponent,
     SpinnerComponent,
     FullComponent,
