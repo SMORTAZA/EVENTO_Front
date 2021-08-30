@@ -77,8 +77,6 @@
               </thead>
               <tbody>
                   <tr *ngFor = "let s of serviceExtra">
-                      <!--<td><label class="checkbox"><input type="checkbox">{{s.image}}</label></td>-->
-                      <!--<td><label class="checkbox"><input type="checkbox" name="checkedServices[]" value="s.idService"></label></td>-->
                       <td><input type="checkbox" name="checkedServices[]" value="{{s.idService}}" (change)="onClicked(option, $event)"></td>
                       <td>{{s.image}}</td>
                       <td>{{s.description}}</td>
@@ -93,17 +91,7 @@
               <mat-icon>shopping_basket</mat-icon>
               <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
             </h3>
-            <!--
-            {% if total == this.event.budget %}
-            <h3 style="color:green; font-weight: bold;">
-              {{total}} €
-            </h3>
-            {%else%}
-            <h3 style="color:red; font-weight: bold;">
-              {{total}} €
-            </h3>
-            {%endif%}-->
-            <h3 style="font-weight: bold;">
+            <h3 [style]="totalColor">
               {{total}} €
             </h3>
           </div>

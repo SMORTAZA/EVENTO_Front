@@ -21,6 +21,7 @@ export class ClientCreationEvenementComponent implements OnInit {
   servicee:Servicee=new Servicee();
   reservation:Reservation = new Reservation(); 
   total:number=0;
+  totalColor:String="color:green; font-weight: bold;";
   align:string = "center";
   dateDuJour:Date=new Date();
   constructor(private evenementService: EvenementService,
@@ -59,6 +60,13 @@ export class ClientCreationEvenementComponent implements OnInit {
           console.log(this.serviceExtra[i].idService);
           console.log(this.serviceExtra[i].tarif);
           this.total += Number(this.serviceExtra[i].tarif);
+        }
+        console.log("budget : " + this.event.budget);
+        if(this.total <= this.event.budget) {
+          this.totalColor="color:green; font-weight: bold;";
+        }
+        else{
+          this.totalColor="color:red; font-weight: bold;";
         }
     }
     console.log("TOTAL = " + this.total);
