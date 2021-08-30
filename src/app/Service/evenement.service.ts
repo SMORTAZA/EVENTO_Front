@@ -22,8 +22,8 @@ export class EvenementService {
     return this.httpClient.post(this.baseURL,event);
   }
 
-  public findOne(id:number):Observable<any>{
-    return this.httpClient.get(this.baseURL+"/"+id);
+  public findByName(nom:string):Observable<any>{
+    return this.httpClient.get(this.baseURL+"/"+nom);
   }
   
 }

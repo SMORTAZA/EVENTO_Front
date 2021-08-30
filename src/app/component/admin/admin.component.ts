@@ -54,7 +54,7 @@ export class AdminComponent implements OnInit {
   eventExtra:any=null;
   abonnementExtra:any=null;
   avisExtra:any=null;
-
+	nom:string='';
   event:Evenement=new Evenement();
   abonnement:Abonnement=new Abonnement();
   avis:Avis=new Avis();
@@ -81,61 +81,79 @@ export class AdminComponent implements OnInit {
 			this.ctrl.disable();
 		}
 	}
-  ngOnInit(): void {
-    this.findAllEvents();
-    this.findAllAbonnements();
+  	ngOnInit(): void {
+		/*this.findAllEvents();
+		this.findAllAbonnements();
+		this.findAllAvis();*/
+		this.getEventsByName();
+		this.nom='';
+
+	
   }
-findAllEvents(){
-  this.evenementService.findAll().subscribe(data=>{this.eventExtra=data});
-}
-deleteEvents(id:number){
-  this.evenementService.delete(id).subscribe(()=>{this.findAllEvents()})
-}
-saveEvents(){
-  console.log("save:"+this.event);
-  this.evenementService.save(this.event).subscribe(()=>{this.findAllEvents();
-  this.event=new Evenement();})
-}
-
-getEventsById(id:number){
-  this.evenementService.findOne(id).subscribe(data=>{this.eventExtra=data});
-
+  	onSubmit(){
+	  this.getEventsByName();
+  }
+	log(){
+	if(this.appService.isAdmin==true && this.appService.isClient==false && this.appService.isPrestataire ==false ){
+		return true;
+	}else{
+		return false;
+	}	
 }
 
-// *******************************Méthodes abonnements**************************************
-findAllAbonnements(){
-  this.abonnementService.findAll().subscribe(data=>{this.abonnementExtra=data});
-}
-deleteAbonnement(id:number){
-  this.abonnementService.delete(id).subscribe(()=>{this.findAllAbonnements()})
-}
-saveAbonnements(){
-  this.abonnementService.save(this.abonnement).subscribe(()=>{this.findAllAbonnements();
-  this.abonnement=new Abonnement();})
-}
+	findAllEvents(){
+	this.evenementService.findAll().subscribe(data=>{this.eventExtra=data});
+	}
 
-getAbonnementsById(id:number){
-  this.abonnementService.findOne(id).subscribe(data=>{this.abonnementExtra=data});
-  
-}
+	deleteEvents(id:number){
+	this.evenementService.delete(id).subscribe(()=>{this.findAllEvents()})
+	}
 
-// ******************************* Méthodes Avis / Réclamations ********************************
+	saveEvents(){
+	console.log("save:"+this.event);
+	this.evenementService.save(this.event).subscribe(()=>{this.findAllEvents();
+	this.event=new Evenement();})
+	}
 
-findAllAvis(){
-  this.avisService.findAll().subscribe(data=>{this.avisExtra=data});
-}
-deleteAvis(id:number){
-  this.avisService.delete(id).subscribe(()=>{this.findAllAvis()})
-}
-saveAvis(){
-  this.avisService.save(this.avis).subscribe(()=>{this.findAllAvis();
-  this.avis=new Avis();})
-}
+	getEventsByName(){
+	this.evenementService.findByName(this.nom).subscribe(data=>{this.eventExtra=data});
 
-getAvisById(id:number){
-  this.avisService.findOne(id).subscribe(data=>{this.avisExtra=data});
-  
-}
+	}
+
+	// *******************************Méthodes abonnements**************************************
+	findAllAbonnements(){
+	this.abonnementService.findAll().subscribe(data=>{this.abonnementExtra=data});
+	}
+	deleteAbonnement(id:number){
+	this.abonnementService.delete(id).subscribe(()=>{this.findAllAbonnements()})
+	}
+	saveAbonnements(){
+	this.abonnementService.save(this.abonnement).subscribe(()=>{this.findAllAbonnements();
+	this.abonnement=new Abonnement();})
+	}
+
+	getAbonnementsById(id:number){
+	this.abonnementService.findOne(id).subscribe(data=>{this.abonnementExtra=data});
+	
+	}
+
+	// ******************************* Méthodes Avis / Réclamations ********************************
+
+	findAllAvis(){
+	this.avisService.findAll().subscribe(data=>{this.avisExtra=data});
+	}
+	deleteAvis(id:number){
+	this.avisService.delete(id).subscribe(()=>{this.findAllAvis()})
+	}
+	saveAvis(){
+	this.avisService.save(this.avis).subscribe(()=>{this.findAllAvis();
+	this.avis=new Avis();})
+	}
+
+	getAvisById(id:number){
+	this.avisService.findOne(id).subscribe(data=>{this.avisExtra=data});
+	
+	}
 
 
 }
