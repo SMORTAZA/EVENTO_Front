@@ -33,11 +33,8 @@ export class ClientConsultationEvenementComponent implements OnInit {
     this.event=new Evenement();})
   }
   
-<<<<<<< HEAD
- 
-=======
   getEventsById(id:number){
-    this.evenementService.findOne(id).subscribe(data=>{this.eventExtra=data});
+    //this.evenementService.findOne(id).subscribe(data=>{this.eventExtra=data});
   }
 
   getEventsByCategorie(categorie:String){
@@ -62,5 +59,4 @@ export class ClientConsultationEvenementComponent implements OnInit {
 			return  `with: ${reason}`;
 		}
 	}
->>>>>>> 5004af46e7046cf14ac2400cbf8404546c8354d5
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/app.service';
@@ -13,6 +13,9 @@ export class PrestataireOffresComponent implements OnInit {
   editForm: FormGroup= this.formBuilder.group({});
 
   offresUser:any;
+  selectedFiles!: FileList;
+  currentFileUpload!: File;
+  addFormHidden=true;
 
   constructor(private router:Router, private utilisateurService:UtilisateurService, private offreService:ServiceeService,
     private formBuilder:FormBuilder, private appService:AppService) { }
@@ -37,4 +40,17 @@ export class PrestataireOffresComponent implements OnInit {
   this.offreService.findOffresPrestataire(parseInt(id)).subscribe(data=>{this.offresUser=data});
   }
   updateOffre(){}
+
+  /*selectFile(event){
+    //this.selectedFiles = event.target.files;
+  }*/
+  saveUser(){
+    /*this.currentFileUpload = this.selectedFiles.item(0);
+    this.utilisateurService.save(this.currentFileUpload,this.user).subscribe(
+      () => {this.findAll(); this.user = new Utilisateur(); this.selectedFiles = undefined;}
+    )*/
+  }
+  activerAddForm(){
+    this.offresUser=false;
+  }
 }
