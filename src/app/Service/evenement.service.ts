@@ -10,7 +10,7 @@ export class EvenementService {
   constructor(private httpClient: HttpClient) { }
 
   public findAll():Observable<any>{
-    
+    console.log(this.baseURL);
     return this.httpClient.get(this.baseURL);
   }
  
@@ -24,6 +24,11 @@ export class EvenementService {
 
   public findOne(id:number):Observable<any>{
     return this.httpClient.get(this.baseURL+"/"+id);
+  }
+
+  public findByCategorie(categorie:String):Observable<any>{
+    console.log("url : " + this.baseURL+"/"+categorie)
+    return this.httpClient.get(this.baseURL+"/categorie/"+categorie);
   }
   
 }
