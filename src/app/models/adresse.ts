@@ -1,5 +1,5 @@
 export class Adresse {
-    idAdresse:number=0;
+    idAdresse?:number;
     rue:String='';
     ville:String='';
     codePostal:number=0;
