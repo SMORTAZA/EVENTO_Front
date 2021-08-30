@@ -22,7 +22,7 @@ export class AbonnementService {
     return this.httpClient.post(this.baseURL,user);
   }
 
-  public findOne(id:number):Observable<any>{
-    return this.httpClient.get(this.baseURL+"/"+id);
+  public findByName(nom:string):Observable<any>{
+    return this.httpClient.get(this.baseURL+"/"+nom);
   }
 }
