@@ -33,7 +33,5 @@ export class ClientComponent implements OnInit {
     this.event=new Evenement();})
   }
   
-  getEventsById(id:number){
-    this.evenementService.findOne(id).subscribe(data=>{this.eventExtra=data});
-  }
+  
 }

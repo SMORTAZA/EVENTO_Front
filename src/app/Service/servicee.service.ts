@@ -26,4 +26,8 @@ export class ServiceeService {
     return this.httpClient.get(this.baseURL+"/"+id);
   }
 
+  public findOffresPrestataire(id:number):Observable<any>{
+    return this.httpClient.get(this.baseURL+"/user/"+id);
+  }
+
 }

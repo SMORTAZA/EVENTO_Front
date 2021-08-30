@@ -37,6 +37,10 @@ export class ClientConsultationEvenementComponent implements OnInit {
     this.evenementService.save(this.event).subscribe(()=>{this.findAllEvents();
     this.event=new Evenement();})
   }
+  
+  getEventsById(id:number){
+    //this.evenementService.findOne(id).subscribe(data=>{this.eventExtra=data});
+  }
 
   getEventsByCategorie(){
     console.log("categorie : " + this.categorie);

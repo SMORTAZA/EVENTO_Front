@@ -29,8 +29,12 @@ export class UtilisateurService {
   public getUtilisateur(id:number) :Observable<any>{
     return this.httpClient.get(this.baseURL+'/'+id);
   }
-  public updateUtilisateur(user:any) :Observable<any>{
-    return this.httpClient.put(this.baseURL+'/'+user.idUtilisateur,user);
+  public updateUtilisateur(user:any):Observable<any>{
+    console.log("update service");
+    var userParse = JSON.parse(user);
+    console.log(userParse);
+    console.log("fin update service");
+    return this.httpClient.put(this.baseURL+'/'+userParse.idUtilisateur,userParse);
   }
 
 }

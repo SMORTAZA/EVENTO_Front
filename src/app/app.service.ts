@@ -22,8 +22,9 @@ export class AppService {
     this.httpClient.get('http://localhost:9090/login/user', {headers: headers}).subscribe(response => {
     this.responseArr = response;
     if(this.responseArr['username']){
+      console.log(this.responseArr);
         this.authenticated = true;
-        //console.log(this.responseArr);
+        localStorage.setItem("loggedUserId", this.responseArr['idUtilisateur'])
         //Boucle pour donner les rôles
         for(let i=0;i<this.responseArr['roles'].length;i++){
           if (this.responseArr['roles'][i]['idRole']==1){
