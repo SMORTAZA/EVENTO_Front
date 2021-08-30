@@ -27,7 +27,7 @@
               </div>
               <div class=" col-md-6 pl-md-1">
                 <div class=" form-group">
-                  <label for="exampleInputEmail1"> Catégorie </label>
+                  <label> Catégorie </label>
                   <select class=form-control>
                     <option value=un selected>Un</option>
                     <option value=deux>Deux</option>
@@ -37,7 +37,13 @@
               </div>
             </div>
             <div class=" row">
-              <div class=" col-md-12 pr-md-3">
+              <div class=" col-md-6 pr-md-3">
+                <div class=" form-group">
+                  <label> Ville </label>
+                  <input class=" form-control" [(ngModel)]="adresse.ville" name="adresse.ville" placeholder="Ville" />
+                </div>
+              </div>
+              <div class=" col-md-6 pr-md-3">
                 <div class=" form-group">
                   <label> Budget </label>
                   <input class=" form-control" [(ngModel)]="event.budget" name="budget" placeholder="Somme en euros" type="number" />
@@ -96,7 +102,8 @@
             </h3>
           </div>
         </div>
-        <button class="btn btn-block btn-success active" type="submit" (click)="saveEvents()">Enregistrer un évenement</button>
+        <!--<button class="btn btn-block btn-success active" type="submit" (click)="saveEvents()">Enregistrer un évenement</button>-->
+        <button class="btn btn-block btn-success active" type="submit" (click)="saveAnEvent()">Enregistrer un évenement</button>
         </div>
       </div>
     </div>

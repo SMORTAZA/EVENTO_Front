@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Adresse } from 'src/app/models/adresse';
 import { Evenement } from 'src/app/models/evenement';
 import { Reservation } from 'src/app/models/reservation';
 import { Servicee } from 'src/app/models/servicee';
@@ -17,20 +18,25 @@ export class ClientCreationEvenementComponent implements OnInit {
   eventExtra:any=null;
   serviceExtra:any=null;
   reservationExtra:any=null;
+  adresseExtra:any=null;
   event:Evenement=new Evenement();
   servicee:Servicee=new Servicee();
   reservation:Reservation = new Reservation(); 
+  adresse:Adresse = new Adresse();
+  adressetmp:Adresse = new Adresse();
   total:number=0;
   totalColor:String="color:green; font-weight: bold;";
   align:string = "center";
   dateDuJour:Date=new Date();
   constructor(private evenementService: EvenementService,
               private serviceService: ServiceeService,
-              private reservationService: ReservationService) { }
+              private reservationService: ReservationService,
+              private adresseService: AdresseService) { }
 
   ngOnInit(): void {
     this.findAllEvents();
     this.findAllServices();
+    this.findAllAdresses();
   }
   findAllEvents(){
     this.evenementService.findAll().subscribe(data=>{this.eventExtra=data});
@@ -39,11 +45,24 @@ export class ClientCreationEvenementComponent implements OnInit {
     this.evenementService.delete(id).subscribe(()=>{this.findAllEvents()})
   }
   saveEvents(){
+    this.event.adresse = this.adresse;
+    console.log("adresseId in event : " + this.adresse.idAdresse);
     this.evenementService.save(this.event).subscribe(()=>{this.findAllEvents();
     this.event=new Evenement();})
   }
   findAllServices(){
     this.serviceService.findAll().subscribe(data=>{this.serviceExtra=data});
+  }
+  findAllAdresses(){
+    this.adresseService.findAll().subscribe(data=>{this.adresseExtra=data});
+  }
+  saveAdresses(){
+    this.adressetmp = this.adresse;
+    console.log("dans saveAdresse : " + this.adresse.idAdresse);
+    this.adresseService.save(this.adresse).subscribe(()=>{this.findAllAdresses();
+    this.adresse=new Adresse();})
+    console.log(this.adressetmp.idAdresse);
+    console.log(this.adressetmp.ville);
   }
   onClicked(oneservice: Servicee, event:any) {
     this.total = 0;
@@ -75,12 +94,13 @@ export class ClientCreationEvenementComponent implements OnInit {
     this.reservationService.findAll().subscribe(data=>{this.reservationExtra=data});
   }
   saveReservations(){
-    //this.reservation.date = this.dateDuJour.getDate();//voir comment gérer la date
+    this.reservation.date = new Date();//voir comment gérer la date
     this.reservation.countFinal = this.total;
     this.reservationService.save(this.reservation).subscribe(()=>{this.findAllReservations();
       this.reservation=new Reservation();})
   }
   saveAnEvent(){
+    this.saveAdresses();
     this.saveReservations();
     this.saveEvents();
   }

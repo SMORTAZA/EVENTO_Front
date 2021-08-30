@@ -16,13 +16,14 @@ export class NavigationComponent {
 
   constructor(private httpClient: HttpClient, private appService: AppService, private router: Router) { }
   logout() {
-    
     this.httpClient.post("http://localhost:9090/logout", {}).subscribe(() => {  
     this.appService.authenticated = false;
     this.appService.isAdmin = false;
     this.appService.isClient = false;
     this.appService.isPrestataire = false;
-      this.router.navigateByUrl('/component/login');
+    //Delete l'id de l'utilisateur connecté
+    localStorage.removeItem("loggedUserId");
+          this.router.navigateByUrl('/component/login');
     })
 
   }
