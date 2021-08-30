@@ -1,4 +1,4 @@
-<div class="row">
+<!--<div class="row">
     <div class="col-lg-6">
         <div class="card">
             <div class="card-header">
@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!---->
 <!--Recherche events-->
 <div class=" content">
@@ -59,15 +59,23 @@
                 </div>
                 <div class=" card-body">
                     <form>
-                        <div class=" row">
+                        <div class=" row" [align]="align">
                             <div class=" col-md-6 pr-md-1">
                                 <div class=" form-group">
-                                    <label> ID de l'évènement recherché </label>
-                                    <input class=" form-control" placeholder="ID" type="text" [(ngModel)]="event.idEvenement" />
+                                    <label> Recherche par catégorie </label>
+                                    <select class=form-control id="select">
+                                        <option value=un selected>Un</option>
+                                        <option value=deux>Deux</option>
+                                        <option value=trois>Trois</option>
+                                        <option value=categorie1>categorie1</option>
+                                    </select> 
                                 </div>
                             </div>
+                            <div>
+                                <br>
+                                <button type="button" class="btn btn-rounded btn-outline-primary" (click)="getEventsByCategorie(event.categorie)">Rechercher</button>
+                            </div>
                         </div>
-                        <button type="button" class="btn btn-rounded btn-outline-primary">Rechercher</button>
                         <!--<button type="button" class="btn btn-rounded btn-outline-primary" (click)="getEventsById(event.idEvenement)">Rechercher</button>-->
                     </form>
                 </div>
@@ -102,38 +110,81 @@
                     <table class="table v-middle nowrap">
                         <thead>
                             <tr>
-                                <th class="border-top-0">#</th>
+                                <!--<th class="border-top-0">#</th>-->
                                 <th class="border-top-0">NAME</th>
                                 <th class="border-top-0">CATEGORIE</th>
                                 <th class="border-top-0">BUDGET</th>
                                 <th class="border-top-0">DATE DEBUT</th>
                                 <th class="border-top-0">DATE FIN</th>
+                                <th class="border-top-0">EVALUATION</th>
+                                <th class="border-top-0">SHARE</th>
                                 <th class="border-top-0"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let e of eventExtra">
-
-                                <td>{{e.idEvenement}}</td>
-                                <td>{{e.nom}}</td>
+                                <!--<td>{{e.idEvenement}}</td>-->
+                                <td>
+                                    <button
+                                        type="button"
+                                        style="border:none;background:transparent"
+                                        ngbPopover={{e.description}}
+                                        triggers="mouseenter:mouseleave"
+                                    >
+                                        {{e.nom}}
+                                    </button>
+                                </td>
                                 <td>{{e.categorie}}</td>
-                                <td>{{e.budget}}</td>
-                                <td>{{e.dateDebut}}</td>
-                                <td>{{e.dateFin}}</td>
+                                <td>{{e.budget}} €</td>
+                                <td>{{e.dateDebut | date:'dd/MM/yyyy'}}</td>
+                                <td>{{e.dateFin | date:'dd/MM/yyyy'}}</td>
+                                <td>
+                                    <div>
+                                        <ng-template #content1 let-modal>
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="modal-basic-title">Evaluer l'evenement</h4>
+                                                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    form à add
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                                            </div>
+                                        </ng-template>
+                                    
+                                        <button class="btn btn-lg btn-outline-primary" style="border:none" (click)="open1(content1)">+</button>
+                                        <div class="m-t-20">{{ closeResult }}</div>
+                                    </div>                                    
+                                </td>
+                                <td>
+                                    <a href="https://www.facebook.com/" class="facebook-share-button" data-show-count="false">
+                                        <i class='fab fa-facebook fa-spin fa-3x'></i>
+                                    </a>
+                                    <a href="https://twitter.com/" class="twitter-share-button" data-show-count="false">
+                                        <i class='fab fa-twitter fa-spin fa-3x'></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/" class="twitter-share-button" data-show-count="false">
+                                        <i class='fab fa-instagram fa-spin fa-3x'></i>
+                                    </a>
+                                    <a href="mailto:abc@example.com?subject = Feedback&body = Message" class="mail-share-button" data-show-count="false">
+                                        <mat-icon class='fab fa-email fa-spin fa-5x'>alternate_email</mat-icon>
+                                        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
+                                    </a>
+                                </td>
                                 <td>
                                     <button type="button" class="btn btn-rounded btn btn-danger" (click)="deleteEvents(e.idEvenement)"><i class="far fa-trash-alt"></i></button>
-
-
                                 </td>
-
                             </tr>
-
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
-  
+

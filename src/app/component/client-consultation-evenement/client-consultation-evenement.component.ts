@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Evenement } from 'src/app/models/evenement';
 import { AdresseService } from 'src/app/Service/adresse.service';
 import { CatalogueService } from 'src/app/Service/catalogue.service';
@@ -11,17 +12,17 @@ import { EvenementService } from 'src/app/Service/evenement.service';
 export class ClientConsultationEvenementComponent implements OnInit {
   eventExtra:any=null;
   event:Evenement=new Evenement();
+  align:string="center";
   constructor(private evenementService: EvenementService,
-              private catalogueService:CatalogueService,
-              private adresseService:AdresseService) { }
+              private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.findAllEvents();
   }
   findAllEvents(){
-    console.log(this.eventExtra);
+    console.log("av  " + this.eventExtra);
     this.evenementService.findAll().subscribe(data=>{this.eventExtra=data});
-    console.log(this.eventExtra);
+    console.log("ap : " + this.eventExtra);
   }
   deleteEvents(id:number){
     this.evenementService.delete(id).subscribe(()=>{this.findAllEvents()})
@@ -32,5 +33,34 @@ export class ClientConsultationEvenementComponent implements OnInit {
     this.event=new Evenement();})
   }
   
+<<<<<<< HEAD
  
+=======
+  getEventsById(id:number){
+    this.evenementService.findOne(id).subscribe(data=>{this.eventExtra=data});
+  }
+
+  getEventsByCategorie(categorie:String){
+    this.evenementService.findByCategorie(categorie).subscribe(data=>{this.eventExtra=data});
+    console.log(this.eventExtra);
+  }
+  // This is for the modal
+  closeResult: string='';
+	open1(content1:string) {
+		this.modalService.open(content1, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+			this.closeResult = `Closed with: ${result}`;
+		}, (reason) => {
+			this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+		});
+	}
+  private getDismissReason(reason: ModalDismissReasons): string {
+		if (reason === ModalDismissReasons.ESC) {
+			return 'by pressing ESC';
+		} else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+			return 'by clicking on a backdrop';
+		} else {
+			return  `with: ${reason}`;
+		}
+	}
+>>>>>>> 5004af46e7046cf14ac2400cbf8404546c8354d5
 }
