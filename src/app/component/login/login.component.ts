@@ -16,21 +16,22 @@ export class LoginComponent implements OnInit {
 
   }
   login() {
-    console.log("Login 1");
+    //console.log("Login 1");
     this.appService.authenticate(this.credentials, () => {
+      //console.log("Login 1-1");
       if (this.appService.isAdmin) {
-        console.log("Login 2");
+        //console.log("Login 2");
         this.router.navigateByUrl("/component/admin");
       }
       else if (this.appService.isPrestataire && !this.appService.isClient) {
-        console.log("Login 3");
+        //console.log("Login 3");
         this.router.navigateByUrl("/component/prestataire");
       }
       else if ((!this.appService.isPrestataire && this.appService.isClient)) {
-        console.log("Login 4");
+        //console.log("Login 4");
         this.router.navigateByUrl("/component/client");
       } else if ((this.appService.isPrestataire && this.appService.isClient)) {
-        console.log("Login 5");
+        //console.log("Login 5");
         this.router.navigateByUrl("/component/accueil");
       }
       return false;
