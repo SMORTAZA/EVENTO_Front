@@ -41,12 +41,6 @@ export class ClientConsultationEvenementComponent implements OnInit {
   getEventsById(id:number){
     //this.evenementService.findOne(id).subscribe(data=>{this.eventExtra=data});
   }
-
-  getEventsByCategorie(){
-    console.log("categorie : " + this.categorie);
-    this.evenementService.findByCategorie(this.categorie).subscribe(data=>{this.eventExtra=data});
-    console.log(this.eventExtra);
-  }
   // This is for the modal
   closeResult: string='';
 	open1(content1:string) {
@@ -65,4 +59,13 @@ export class ClientConsultationEvenementComponent implements OnInit {
 			return  `with: ${reason}`;
 		}
 	}
+  //for the recherche par cat
+  onSubmit(){
+	  this.getEventsByCategorie();
+  }
+  getEventsByCategorie(){
+    console.log("categorie : " + this.categorie);
+    this.evenementService.findByCategorie(this.categorie).subscribe(data=>{this.eventExtra=data});
+    console.log(this.eventExtra);
+  }
 }

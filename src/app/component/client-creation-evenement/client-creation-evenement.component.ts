@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Adresse } from 'src/app/models/adresse';
+import { Catalogue } from 'src/app/models/catalogue';
 import { Evenement } from 'src/app/models/evenement';
 import { Reservation } from 'src/app/models/reservation';
 import { Servicee } from 'src/app/models/servicee';
@@ -28,6 +29,10 @@ export class ClientCreationEvenementComponent implements OnInit {
   totalColor:String="color:green; font-weight: bold;";
   align:string = "center";
   dateDuJour:Date=new Date();
+  categories = [{id:1, value:"Musique"},
+                {id:2, value:"Sciences"},
+                {id:3, value:"Sport"},
+                {id:4, value:"Art"}];
   constructor(private evenementService: EvenementService,
               private serviceService: ServiceeService,
               private reservationService: ReservationService,
@@ -37,6 +42,7 @@ export class ClientCreationEvenementComponent implements OnInit {
     this.findAllEvents();
     this.findAllServices();
     this.findAllAdresses();
+    this.categories;
   }
   findAllEvents(){
     this.evenementService.findAll().subscribe(data=>{this.eventExtra=data});
@@ -45,6 +51,7 @@ export class ClientCreationEvenementComponent implements OnInit {
     this.evenementService.delete(id).subscribe(()=>{this.findAllEvents()})
   }
   saveEvents(){
+    console.log("categorie dans event : " + this.event.categorie)
     this.event.adresse = this.adresse;
     console.log("adresseId in event : " + this.adresse.idAdresse);
     this.evenementService.save(this.event).subscribe(()=>{this.findAllEvents();
@@ -103,5 +110,15 @@ export class ClientCreationEvenementComponent implements OnInit {
     this.saveAdresses();
     this.saveReservations();
     this.saveEvents();
+  }
+  categorie?:String;
+  /*onChange(){
+    this.categorie = (<HTMLSelectElement>document.getElementById("mySelect")).value;
+    console.log("valeur cat : " + this.categorie);
+  }*/
+
+  @ViewChild('mySelect') MyDOMElement?: ElementRef;
+  onChange(){
+    console.log(this.MyDOMElement);
   }
 }

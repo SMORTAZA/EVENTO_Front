@@ -28,11 +28,11 @@
               <div class=" col-md-6 pl-md-1">
                 <div class=" form-group">
                   <label> Catégorie </label>
-                  <select class=form-control>
-                    <option value=un selected>Un</option>
-                    <option value=deux>Deux</option>
-                    <option value=trois>Trois</option>
-                  </select>                              
+                  <select class=form-control [(ngModel)]="event.categorie" [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let c of categories" [ngValue]="c.value">
+                      {{c.value}}
+                    </option>
+                  </select>
                 </div>
               </div>
             </div>
