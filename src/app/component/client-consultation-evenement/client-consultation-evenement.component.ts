@@ -46,7 +46,7 @@ export class ClientConsultationEvenementComponent implements OnInit {
     this.reservationService.findAll().subscribe(data=>{this.reservationExtra=data});
   }
   deleteEvents(id:number){
-    this.reservationService.deleteByIdEvenement(id).subscribe(()=>{this.findAllReservations()});//marche pas je crois
+    //this.reservationService.deleteByIdEvenement(id).subscribe(()=>{this.findAllReservations()});//marche pas je crois
     this.evenementService.delete(id).subscribe(()=>{this.findAllEvents()})
   }
   saveEvents(){
