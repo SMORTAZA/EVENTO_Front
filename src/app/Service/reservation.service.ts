@@ -25,4 +25,9 @@ export class ReservationService {
   public findOne(id:number):Observable<any>{
     return this.httpClient.get(this.baseURL+"/"+id);
   }
+
+  public deleteByIdEvenement(id:number):Observable<any>{
+    return this.httpClient.delete(this.baseURL+"/evenement/"+id); 
+  }
+
 }

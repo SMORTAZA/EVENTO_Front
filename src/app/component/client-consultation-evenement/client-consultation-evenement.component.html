@@ -12,10 +12,11 @@
                             <div class=" col-md-6 pr-md-1">
                                 <div class=" form-group">
                                     <label> Recherche par catégorie </label>
-                                    <form (ngSubmit)="onSubmit()">
-                                        <input type="text" class="text" [(ngModel)]="categorie" name=categorie>
-                                        <button class="submit">Search</button>
-                                    </form>
+                                    <select class=form-control [(ngModel)]="event.categorie" [ngModelOptions]="{standalone: true}">
+                                        <option *ngFor="let c of categories" [ngValue]="c.value">
+                                          {{c.value}}
+                                        </option>
+                                    </select>
                                 </div>
                             </div>
                             <div>
@@ -23,7 +24,6 @@
                                 <button type="button" class="btn btn-rounded btn-outline-primary" (click)="getEventsByCategorie()">Rechercher</button>
                             </div>
                         </div>
-                        <!--<button type="button" class="btn btn-rounded btn-outline-primary" (click)="getEventsById(event.idEvenement)">Rechercher</button>-->
                     </form>
                 </div>
             </div>
@@ -61,6 +61,7 @@
                             <tr *ngFor="let e of eventExtra">
                                 <!--<td>{{e.idEvenement}}</td>-->
                                 <td>
+                                    <button style="border:none;background:transparent" (click)="findService(e)">
                                     <button
                                         type="button"
                                         style="border:none;background:transparent"
@@ -73,10 +74,10 @@
                                                     <h4 class="modal-title" id="modal-basic-title">Evaluer les services</h4>
                                                     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                                                         <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                    </button>   
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form>
+                                                    <form >
                                                         Mettre la liste des services et pr chaque faire :
                                                         <div class=" form-group">
                                                             <label> Commentaire </label>
@@ -94,6 +95,7 @@
                                             <div class="m-t-20">{{ closeResult }}</div>
                                         </div>
                                     </button>
+                                </button>
                                 </td>
                                 <td>{{e.categorie}}</td>
                                 <td>{{e.budget}} €</td>
