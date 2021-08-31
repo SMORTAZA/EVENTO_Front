@@ -37,4 +37,11 @@ export class ServiceeService {
     return this.httpClient.request(req);
   }
 
+  public updateServicee(service:any):Observable<any>{
+    var offreParse = JSON.parse(service);
+    console.log(offreParse);
+    console.log(this.baseURL+'/'+offreParse.idService);
+    return this.httpClient.put(this.baseURL+'/'+offreParse.idService,offreParse);
+  }
+
 }
