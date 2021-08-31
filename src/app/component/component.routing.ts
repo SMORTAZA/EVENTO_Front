@@ -145,84 +145,84 @@ export const ComponentsRoutes: Routes = [
 				path: 'toast',
 				component: ToastComponent,
 				data: {
-					title: 'Toast',
+					title: '',
 				}
 			},
 			{
 				path: 'admin',
 				component: AdminComponent,
 				data: {
-					title: 'Admin',
+					title: '',
 				}
 			},
 			{
 				path: 'client',
 				component: ClientComponent,
 				data: {
-					title: 'Client',
+					title: '',
 				}
 			},
 			{
 				path: 'client',
 				component: ClientComponent,
 				data: {
-					title: 'Client',
+					title: '',
 				}
 			},
 			{
 				path: 'creationEvenement',
 				component: ClientCreationEvenementComponent,
 				data: {
-					title: 'Creation Evenement',
+					title: '',
 				}
 			},
 			{
 				path: 'consultationEvenement',
 				component: ClientConsultationEvenementComponent,
 				data: {
-					title: 'Consultation Evenement',
+					title: '',
 				}
 			},
 			{
 				path: 'prestataire',
 				component: PrestataireComponent,
 				data: {
-					title: 'Prestataire',
+					title: '',
 				}
 			},
 			{
 				path: 'prestataire-offres',
 				component: PrestataireOffresComponent,
 				data: {
-					title: 'Offres du Prestataire',
+					title: '',
 				}
 			},
 			{
 				path: 'prestataire-profil',
 				component: PrestataireProfilComponent,
 				data: {
-					title: 'Profil du Prestataire',
+					title: '',
 				}
 			},
 			{
 				path: 'prestataire-edit-offre',
 				component: PrestataireEditOffreComponent,
 				data: {
-					title: 'Edition Offres Prestataire',
+					title: '',
 				}
 			},
 			{
 				path: 'login',
 				component: LoginComponent,
 				data: {
-					title: 'Login',
+					title: '',
 				}
 			},
 			{
 				path: 'home',
 				component: HomeComponent,
 				data: {
-					title: 'Accueil',
+					title: '',
 				}
 			}
 		]

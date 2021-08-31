@@ -16,10 +16,10 @@ export class HomeComponent implements OnInit {
     let userId = localStorage.getItem("loggedUserId");
     this.cuserId=userId!== null ? JSON.parse(userId) : new Utilisateur();
 
-    //if(!this.authenticated()){
-      //console.log("!log");
-    //this.router.navigate(['/component/login']);}
-    //else{
+    if(!this.authenticated()){
+      console.log("!log");
+    this.router.navigate(['/component/login']);}
+    else{
       console.log("log");
 
  if(this.isAdmin()&&!this.isClient()&&!this.isPrestataire()){
@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
           this.router.navigate(['/component/prestataire']);}
     
   }
+}
 
   authenticated() {
      //this.utilisateurService.getUtilisateur(this.cuserId);

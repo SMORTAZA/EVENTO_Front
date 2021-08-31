@@ -31,4 +31,7 @@ export class ClientComponent implements OnInit {
   isClient() {
     return this.appService.isClient;
   }
+  isAdmin() {
+    return this.appService.isAdmin;
+  }
 }
