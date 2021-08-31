@@ -26,8 +26,8 @@ export class ReservationService {
     return this.httpClient.get(this.baseURL+"/"+id);
   }
 
-  public deleteByIdEvenement(id:number):Observable<any>{
+  /*public deleteByIdEvenement(id:number):Observable<any>{
     return this.httpClient.delete(this.baseURL+"/evenement/"+id); 
-  }
+  }*/
 
 }

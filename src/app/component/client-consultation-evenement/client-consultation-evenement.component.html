@@ -86,6 +86,7 @@
                                                     <h4 class="modal-title" id="modal-basic-title">Evaluer les services</h4>
                                                     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                                                         <span aria-hidden="true">&times;</span>
+<<<<<<< HEAD
                                                     </button>
                 </div>
                 <div class="modal-body">
@@ -118,6 +119,40 @@
                     <i>{{ville}}</i>
                 </a>
                 <!--<div>
+=======
+                                                    </button>   
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form >
+                                                        Mettre la liste des services et pr chaque faire :
+                                                        <div class=" form-group">
+                                                            <label> Commentaire </label>
+                                                            <textarea class=" form-control" [(ngModel)]="avis.commentaire" name="commentaire" placeholder="Commentaire" type="text" rows="3"></textarea>
+                                                        </div>
+                                                        ajouter une note
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                                                </div>
+                                            </ng-template>
+                                        
+                                            <button  class="btn btn-lg btn-outline-primary" style="border:none" (click)="open1(content1)">{{e.nom}}</button>
+                                            <div class="m-t-20">{{ closeResult }}</div>
+                                        </div>
+                                    </button>
+                                </button>
+                                </td>
+                                <td>{{e.categorie}}</td>
+                                <td>{{e.budget}} €</td>
+                                <td>{{e.dateDebut | date:'dd/MM/yyyy'}}</td>
+                                <td>{{e.dateFin | date:'dd/MM/yyyy'}}</td>
+                                <td>
+                                    <a href="https://www.google.fr/maps/place/{{ville}}" data-show-count="false">
+                                        <i>{{ville}}</i>
+                                    </a>
+                                    <!--<div>
+>>>>>>> 242ca2448ce4ea0906e5e069ce01c5bd05e95d41
                                         <ng-template #content1 let-modal>
                                             <div class="modal-header">
                                                 <h4 class="modal-title" id="modal-basic-title">Evaluer l'evenement</h4>

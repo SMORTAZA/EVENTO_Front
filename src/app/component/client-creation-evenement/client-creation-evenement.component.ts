@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 import { Adresse } from 'src/app/models/adresse';
 import { Catalogue } from 'src/app/models/catalogue';
 import { Evenement } from 'src/app/models/evenement';
@@ -36,7 +37,8 @@ export class ClientCreationEvenementComponent implements OnInit {
   constructor(private evenementService: EvenementService,
               private serviceService: ServiceeService,
               private reservationService: ReservationService,
-              private adresseService: AdresseService) { }
+              private adresseService: AdresseService,
+              private appService:AppService) { }
 
   ngOnInit(): void {
     this.findAllEvents();
@@ -111,14 +113,12 @@ export class ClientCreationEvenementComponent implements OnInit {
     this.saveReservations();
     this.saveEvents();
   }
-  categorie?:String;
-  /*onChange(){
-    this.categorie = (<HTMLSelectElement>document.getElementById("mySelect")).value;
-    console.log("valeur cat : " + this.categorie);
-  }*/
-
-  @ViewChild('mySelect') MyDOMElement?: ElementRef;
-  onChange(){
-    console.log(this.MyDOMElement);
+  
+  log(){
+    if(this.appService.isAdmin==false && this.appService.isClient==true && this.appService.isPrestataire ==false ){
+      return true;
+    }else{
+      return false;
+    }
   }
 }

@@ -31,6 +31,7 @@ import { PrestataireOffresComponent } from './prestataire-offres/prestataire-off
 import { ClientConsultationEvenementComponent } from './client-consultation-evenement/client-consultation-evenement.component';
 import { ClientCreationEvenementComponent } from './client-creation-evenement/client-creation-evenement.component';
 import { MatIconModule } from '@angular/material/icon';
+import { PrestataireEditOffreComponent } from './prestataire-edit-offre/prestataire-edit-offre.component';
 
 @NgModule({
   imports: [
@@ -65,7 +66,8 @@ import { MatIconModule } from '@angular/material/icon';
     ClientCreationEvenementComponent,
     PrestataireComponent,
     PrestataireProfilComponent,
-    PrestataireOffresComponent
+    PrestataireOffresComponent,
+    PrestataireEditOffreComponent
   ]
 })
 export class ComponentsModule {}
