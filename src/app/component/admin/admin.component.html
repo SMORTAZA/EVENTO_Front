@@ -101,8 +101,8 @@
                                         <td>{{e.nom}}</td>
                                         <td>{{e.categorie}}</td>
                                         <td>{{e.budget}}</td>
-                                        <td>{{e.dateDebut}}</td>
-                                        <td>{{e.dateFin}}</td>
+                                        <td>{{e.dateDebut | date:'dd/MM/yyyy'}}</td>
+                                        <td>{{e.dateFin | date:'dd/MM/yyyy'}}</td>
                                         <td>
                                             <button type="button" class="btn btn-rounded btn btn-danger" [disabled]="!log()" (click)="deleteEvents(e.idEvenement)"><i class="far fa-trash-alt"></i></button>
 
@@ -203,8 +203,8 @@
                                         <td>{{a.idAbonnement}}</td>
                                         <td>{{a.nom}}</td>
                                         <td>{{a.tarif}}</td>
-                                        <td>{{a.dateDebut}}</td>
-                                        <td>{{a.dateFin}}</td>
+                                        <td>{{a.dateDebut | date:'dd/MM/yyyy'}}</td>
+                                        <td>{{a.dateFin | date:'dd/MM/yyyy'}}</td>
                                         <td>
                                             <button [disabled]="!log()" type="button" class="btn btn-rounded btn btn-danger" (click)="deleteAbonnement(a.idAbonnement)"><i class="far fa-trash-alt"></i></button>
                                         </td>
@@ -280,7 +280,39 @@
                                 <!-- <h5 class="card-subtitle">Overview of Top Selling Items</h5> -->
                             </div>
                         </div>
-                        <div class="col-2">
+                        <!--<div class=" card-body">
+                            <form>
+                                <div class=" row" [align]="align">
+                                    <div class=" col-md-3 pr-md-1">
+                                        <div class=" form-group">
+                                            <label> Recherche par note </label>
+                                            <select class=form-control [(ngModel)]="avis.note" [ngModelOptions]="{standalone: true}">
+                                                <option *ngFor="let n of notes" [ngValue]="n.value">
+                                                  {{n.value}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div >
+                                        <br>
+                                        <button type="button" class="btn btn-rounded btn-outline-primary" (click)="getAvisByNote2()">Rechercher</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>-->
+                        <div class=" col-md-3 pr-md-1">
+                            <div class="input-group">
+                                <select class="custom-select" id="inputGroupSelect04" [(ngModel)]="avis.note" [ngModelOptions]="{standalone: true}">
+                                <option *ngFor="let n of notes" [ngValue]="n.value">
+                                    {{n.value}}
+                                  </option>
+                            </select>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-info" type="button" (click)="getAvisByNote2()"><i class="fas fa-search "></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="col-2">
 
                             <form (ngSubmit)=onSubmit2()>
                                 <div class="input-group mb-3">
@@ -290,7 +322,7 @@
                                     </div>
                                 </div>
                             </form>
-                        </div>
+                        </div>-->
 
 
 
