@@ -1,6 +1,7 @@
 <nav class="sidebar-nav pt-3">
     <ul id="sidebarnav">
         <!-- First level menu -->
+
         <li class="sidebar-item" [class.active]="showMenu === sidebarnavItem.title" *ngFor="let sidebarnavItem of sidebarnavItems" [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
 
             <div class="" *ngIf="sidebarnavItem.extralink === true">{{sidebarnavItem.title}}</div>
@@ -12,5 +13,6 @@
                 <span class="hide-menu">{{sidebarnavItem.title}}</span>
             </a>
         </li>
+
     </ul>
 </nav>

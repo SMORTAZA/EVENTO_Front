@@ -6,13 +6,13 @@
                 <div class=" card-header">
                     <h4 class="card-title font-16 text-uppercase">Recherche d'évènement</h4>
                 </div>
-                <div class=" card-body">
+                <!--<div class=" card-body">
                     <form>
                         <div class=" row" [align]="align">
                             <div class=" col-md-6 pr-md-1">
                                 <div class=" form-group">
                                     <label> Recherche par catégorie </label>
-                                    <select  [disabled]="!log()" class=form-control [(ngModel)]="event.categorie" [ngModelOptions]="{standalone: true}">
+                                    <select class=form-control [(ngModel)]="event.categorie" [ngModelOptions]="{standalone: true}">
                                         <option *ngFor="let c of categories" [ngValue]="c.value">
                                           {{c.value}}
                                         </option>
@@ -21,15 +21,27 @@
                             </div>
                             <div>
                                 <br>
-                                <button  [disabled]="!log()" type="button" class="btn btn-rounded btn-outline-primary" (click)="getEventsByCategorie()">Rechercher</button>
+                                <button type="button" class="btn btn-rounded btn-outline-primary" (click)="getEventsByCategorie()">Rechercher</button>
                             </div>
                         </div>
                     </form>
+                </div>-->
+                <div class=" col-md-3 pr-md-1">
+                    <div class="input-group">
+                        <select class="custom-select" id="inputGroupSelect04" [(ngModel)]="event.categorie" [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let c of categories" [ngValue]="c.value">
+                            {{c.value}}
+                          </option>
+                    </select>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-info" type="button" (click)="getEventsByCategorie()"><i class="fas fa-search "></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>  
+</div>
 <!--Affiche events-->
 <div class="row">
     <!-- column -->
@@ -57,12 +69,12 @@
                                 <th class="border-top-0"></th>
                             </tr>
                         </thead>
-                        <tbody  [hidden]="!log()">
+                        <tbody>
                             <tr *ngFor="let e of eventExtra">
                                 <!--<td>{{e.idEvenement}}</td>-->
                                 <td>
-                                    <button  [disabled]="!log()" style="border:none;background:transparent" (click)="findService(e)">
-                                    <button  [disabled]="!log()"
+                                    <button style="border:none;background:transparent" (click)="findService(e)">
+                                    <button
                                         type="button"
                                         style="border:none;background:transparent"
                                         ngbPopover={{e.description}}
@@ -74,6 +86,40 @@
                                                     <h4 class="modal-title" id="modal-basic-title">Evaluer les services</h4>
                                                     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                                                         <span aria-hidden="true">&times;</span>
+<<<<<<< HEAD
+                                                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        Mettre la liste des services et pr chaque faire :
+                        <div class=" form-group">
+                            <label> Commentaire </label>
+                            <textarea class=" form-control" [(ngModel)]="avis.commentaire" name="commentaire" placeholder="Commentaire" type="text" rows="3"></textarea>
+                        </div>
+                        ajouter une note
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                </div>
+                </ng-template>
+
+                <button class="btn btn-lg btn-outline-primary" style="border:none" (click)="open1(content1)">{{e.nom}}</button>
+                <div class="m-t-20">{{ closeResult }}</div>
+            </div>
+            </button>
+            </button>
+            </td>
+            <td>{{e.categorie}}</td>
+            <td>{{e.budget}} €</td>
+            <td>{{e.dateDebut | date:'dd/MM/yyyy'}}</td>
+            <td>{{e.dateFin | date:'dd/MM/yyyy'}}</td>
+            <td>
+                <a href="https://www.google.fr/maps/place/{{ville}}" data-show-count="false">
+                    <i>{{ville}}</i>
+                </a>
+                <!--<div>
+=======
                                                     </button>   
                                                 </div>
                                                 <div class="modal-body">
@@ -87,11 +133,11 @@
                                                     </form>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button  [disabled]="!log()" type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                                                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
                                                 </div>
                                             </ng-template>
                                         
-                                            <button [disabled]="!log()"  class="btn btn-lg btn-outline-primary" style="border:none" (click)="open1(content1)">{{e.nom}}</button>
+                                            <button  class="btn btn-lg btn-outline-primary" style="border:none" (click)="open1(content1)">{{e.nom}}</button>
                                             <div class="m-t-20">{{ closeResult }}</div>
                                         </div>
                                     </button>
@@ -106,6 +152,7 @@
                                         <i>{{ville}}</i>
                                     </a>
                                     <!--<div>
+>>>>>>> 242ca2448ce4ea0906e5e069ce01c5bd05e95d41
                                         <ng-template #content1 let-modal>
                                             <div class="modal-header">
                                                 <h4 class="modal-title" id="modal-basic-title">Evaluer l'evenement</h4>
@@ -130,32 +177,31 @@
                                     
                                         <button class="btn btn-lg btn-outline-primary" style="border:none" (click)="open1(content1)">+</button>
                                         <div class="m-t-20">{{ closeResult }}</div>
-                                    </div>  -->                                  
-                                </td>
-                                <td>
-                                    <a href="https://www.facebook.com/" class="facebook-share-button" data-show-count="false">
-                                        <i class='fab fa-facebook fa-spin fa-3x'></i>
-                                    </a>
-                                    <a href="https://twitter.com/" class="twitter-share-button" data-show-count="false">
-                                        <i class='fab fa-twitter fa-spin fa-3x'></i>
-                                    </a>
-                                    <a href="https://www.instagram.com/" class="twitter-share-button" data-show-count="false">
-                                        <i class='fab fa-instagram fa-spin fa-3x'></i>
-                                    </a>
-                                    <a href="mailto:abc@example.com?subject = Feedback&body = Message" class="mail-share-button" data-show-count="false">
-                                        <mat-icon class='fab fa-email fa-spin fa-5x'>alternate_email</mat-icon>
-                                        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
-                                    </a>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-rounded btn btn-danger" (click)="deleteEvents(e.idEvenement)"><i class="far fa-trash-alt"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                                    </div>  -->
+            </td>
+            <td>
+                <a href="https://www.facebook.com/" class="facebook-share-button" data-show-count="false">
+                    <i class='fab fa-facebook fa-spin fa-3x'></i>
+                </a>
+                <a href="https://twitter.com/" class="twitter-share-button" data-show-count="false">
+                    <i class='fab fa-twitter fa-spin fa-3x'></i>
+                </a>
+                <a href="https://www.instagram.com/" class="twitter-share-button" data-show-count="false">
+                    <i class='fab fa-instagram fa-spin fa-3x'></i>
+                </a>
+                <a href="mailto:abc@example.com?subject = Feedback&body = Message" class="mail-share-button" data-show-count="false">
+                    <mat-icon class='fab fa-email fa-spin fa-5x'>alternate_email</mat-icon>
+                    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                </a>
+            </td>
+            <td>
+                <button type="button" class="btn btn-rounded btn btn-danger" (click)="deleteEvents(e.idEvenement)"><i class="far fa-trash-alt"></i></button>
+            </td>
+            </tr>
+            </tbody>
+            </table>
         </div>
     </div>
 </div>
-
+</div>
+</div>

@@ -63,6 +63,20 @@ export class AdminComponent implements OnInit {
 
   collapsed = true;
 
+  align:string="center";
+  notes = [{id:0, value:null },
+                {id:1, value:0},
+                {id:2, value:1},
+                {id:3, value:2},
+                {id:4, value:3},
+				{id:5, value:4},
+				{id:6, value:5},
+				{id:7, value:6},
+				{id:8, value:7},
+				{id:9, value:8},
+				{id:10, value:9},
+				{id:11, value:10}
+			];
 
   constructor(private evenementService:EvenementService,private catalogueService:CatalogueService,private adresseService:AdresseService, private abonnementService:AbonnementService, private avisService:AvisService, private appService:AppService) { }
 
@@ -92,6 +106,7 @@ export class AdminComponent implements OnInit {
 		this.getAbonnementsByName();
 		this.getAvisByNote();
 		this.nom='';
+		this.notes;
 		
 
 	
@@ -172,6 +187,16 @@ export class AdminComponent implements OnInit {
 	this.avisService.findByNote(this.note).subscribe(data=>{this.avisExtra=data});
 	}
 
+
+	getAvisByNote2(){
+		
+		if (this.avis.note != null){
+		  this.avisService.findByNote2(this.avis.note).subscribe(data=>{this.avisExtra=data});
+		}
+		else{
+		  this.findAllAvis();
+		}
+	  }
 
 }
 

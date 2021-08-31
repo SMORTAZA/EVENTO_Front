@@ -4,6 +4,7 @@ import { RouteInfo } from './sidebar.metadata';
 
 export const ROUTES: RouteInfo[] = [
   
+  
   {
     path: '',
     title: 'Personal',
@@ -44,7 +45,7 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   },
-  {
+  /*{
     path: '/component/creationEvenement',
     title: 'Creation Evenement',
     icon: 'fa fas fa-calendar-alt fa-lg ',
@@ -59,7 +60,7 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
-  },
+  },*/
   {
     path: '/component/prestataire',
     title: 'Prestataire',

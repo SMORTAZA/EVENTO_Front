@@ -28,4 +28,9 @@ export class AvisService {
   public findByNote(note:number):Observable<any>{
     return this.httpClient.get(this.baseURL+"/"+note);
   }
+
+  public findByNote2(note:number):Observable<any>{
+    console.log("url : " + this.baseURL+"/"+note)
+    return this.httpClient.get(this.baseURL+"/note/"+note);
+  }
 }
