@@ -1,21 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/app.service';
+import { Utilisateur } from 'src/app/models/utilisateur';
+import { UtilisateurService } from 'src/app/Service/utilisateur.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private appService:AppService,private router:Router) { }
+ cuserId?:string;
+  constructor(private appService:AppService,private router:Router, private utilisateurService:UtilisateurService) { }
 
   ngOnInit(): void {
-    if(!this.authenticated()){
-      console.log("!log");
-    this.router.navigate(['/component/login']);}
-    else{
+    let userId = localStorage.getItem("loggedUserId");
+    this.cuserId=userId!== null ? JSON.parse(userId) : new Utilisateur();
+
+    //if(!this.authenticated()){
+      //console.log("!log");
+    //this.router.navigate(['/component/login']);}
+    //else{
       console.log("log");
+
  if(this.isAdmin()&&!this.isClient()&&!this.isPrestataire()){
   console.log("admin");
     this.router.navigate(['/component/admin']);}
@@ -26,11 +32,15 @@ export class HomeComponent implements OnInit {
         console.log("presta");
         this.router.navigate(['/component/prestataire']);}
         else if(!this.isAdmin()&&this.isClient()&&this.isPrestataire()){
-          console.log("clipresta");
+          console.log("");
           this.router.navigate(['/component/prestataire']);}
-    }
+    
   }
+
   authenticated() {
+     //this.utilisateurService.getUtilisateur(this.cuserId);
+     //this.stringUserId=userId!== null ? JSON.parse(userId) : new Servicee();
+
     return this.appService.authenticated;
   }
 
@@ -43,5 +53,6 @@ export class HomeComponent implements OnInit {
   isPrestataire() {
     return this.appService.isPrestataire;
   }
+  
 
 }
