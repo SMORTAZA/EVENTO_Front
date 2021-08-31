@@ -55,10 +55,13 @@ export class AdminComponent implements OnInit {
   abonnementExtra:any=null;
   avisExtra:any=null;
 	nom:string='';
+	note:number=0;
   event:Evenement=new Evenement();
   abonnement:Abonnement=new Abonnement();
   avis:Avis=new Avis();
-  
+  public isCollapsed = false;
+
+  collapsed = true;
 
 
   constructor(private evenementService:EvenementService,private catalogueService:CatalogueService,private adresseService:AdresseService, private abonnementService:AbonnementService, private avisService:AvisService, private appService:AppService) { }
@@ -82,17 +85,27 @@ export class AdminComponent implements OnInit {
 		}
 	}
   	ngOnInit(): void {
-		/*this.findAllEvents();
+		this.findAllEvents();
 		this.findAllAbonnements();
-		this.findAllAvis();*/
+		this.findAllAvis();
 		this.getEventsByName();
+		this.getAbonnementsByName();
+		this.getAvisByNote();
 		this.nom='';
+		
 
 	
-  }
+  	}
   	onSubmit(){
 	  this.getEventsByName();
-  }
+  	}
+  	onSubmit1(){
+		this.getAbonnementsByName();
+	}
+	onSubmit2(){
+	this.getAvisByNote();
+	}
+
 	log(){
 	if(this.appService.isAdmin==true && this.appService.isClient==false && this.appService.isPrestataire ==false ){
 		return true;
@@ -132,8 +145,8 @@ export class AdminComponent implements OnInit {
 	this.abonnement=new Abonnement();})
 	}
 
-	getAbonnementsById(id:number){
-	this.abonnementService.findOne(id).subscribe(data=>{this.abonnementExtra=data});
+	getAbonnementsByName(){
+	this.abonnementService.findByName(this.nom).subscribe(data=>{this.abonnementExtra=data});
 	
 	}
 
@@ -153,6 +166,10 @@ export class AdminComponent implements OnInit {
 	getAvisById(id:number){
 	this.avisService.findOne(id).subscribe(data=>{this.avisExtra=data});
 	
+	}
+
+	getAvisByNote(){
+	this.avisService.findByNote(this.note).subscribe(data=>{this.avisExtra=data});
 	}
 
 

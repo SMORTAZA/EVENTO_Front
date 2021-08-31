@@ -3,6 +3,7 @@ import { RouteInfo } from './sidebar.metadata';
 
 
 export const ROUTES: RouteInfo[] = [
+  
   {
     path: '',
     title: 'Personal',
@@ -28,6 +29,62 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
+    path: '/component/admin',
+    title: 'Admin',
+    icon: 'fa fa-id-card fa-lg ',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/component/client',
+    title: 'Client',
+    icon: 'fa fas fa-child fa-lg ',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/component/creationEvenement',
+    title: 'Creation Evenement',
+    icon: 'fa fas fa-calendar-alt fa-lg ',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/component/consultationEvenement',
+    title: 'Consultation Evenement',
+    icon: 'fa far fa-calendar-check fa-lg ',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/component/prestataire',
+    title: 'Prestataire',
+    icon: 'fa fas fa-truck-loading fa-lg ',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/component/prestataire-offres',
+    title: 'Prestataire offres',
+    icon: 'fa fas fa-coffee fa-lg ',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '/component/prestataire-profil',
+    title: 'Prestataire profil',
+    icon: 'fa far fa-user-circle fa-lg ',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
     path: '/component/card',
     title: 'Card',
     icon: 'mdi mdi-blur-radial',
@@ -35,14 +92,7 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   },
-  {
-    path: '/component/accordion',
-    title: 'Accordion',
-    icon: 'mdi mdi-equal',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
+  
   {
     path: '/component/alert',
     title: 'Alert',
@@ -75,14 +125,7 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   },
-  {
-    path: '/component/pagination',
-    title: 'Pagination',
-    icon: 'mdi mdi-backburger',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
+ 
   {
     path: '/component/poptool',
     title: 'Popover & Tooltip',
@@ -91,14 +134,7 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   },
-  {
-    path: '/component/progressbar',
-    title: 'Progressbar',
-    icon: 'mdi mdi-poll',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
+  
   {
     path: '/component/rating',
     title: 'Ratings',
@@ -107,22 +143,8 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: []
   },
-  {
-    path: '/component/tabs',
-    title: 'Tabs',
-    icon: 'mdi mdi-sort-variant',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
-  {
-    path: '/component/timepicker',
-    title: 'Timepicker',
-    icon: 'mdi mdi-calendar-clock',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
+  
+  
   {
     path: '/component/buttons',
     title: 'Button',
@@ -138,63 +160,8 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
-  },
-  {
-    path: '/component/admin',
-    title: 'Admin',
-    icon: 'fa fa-id-card fa-lg ',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
-  {
-    path: '/component/client',
-    title: 'Client',
-    icon: 'fa fa-id-card fa-lg ',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
-  {
-    path: '/component/creationEvenement',
-    title: 'Creation Evenement',
-    icon: 'fa fa-id-card fa-lg ',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
-  {
-    path: '/component/consultationEvenement',
-    title: 'Consultation Evenement',
-    icon: 'fa fa-id-card fa-lg ',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
-  {
-    path: '/component/prestataire',
-    title: 'Prestataire',
-    icon: 'fa fa-id-card fa-lg ',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
-  {
-    path: '/component/prestataire-offres',
-    title: 'Prestataire offres',
-    icon: 'fa fa-id-card fa-lg ',
-    class: '',
-    extralink: false,
-    submenu: []
-  },
-  {
-    path: '/component/prestataire-profil',
-    title: 'Prestataire profil',
-    icon: 'fa fa-id-card fa-lg ',
-    class: '',
-    extralink: false,
-    submenu: []
   }
+  
 
 ];
 

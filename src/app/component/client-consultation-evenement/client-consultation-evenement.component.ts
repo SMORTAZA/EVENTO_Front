@@ -38,9 +38,13 @@ export class ClientConsultationEvenementComponent implements OnInit {
     this.event=new Evenement();})
   }
   
+<<<<<<< HEAD
+ 
+=======
   getEventsById(id:number){
     //this.evenementService.findOne(id).subscribe(data=>{this.eventExtra=data});
   }
+>>>>>>> 42f511a43b6e4bab8fd2e4c3b44cc18423452691
 
   getEventsByCategorie(){
     console.log("categorie : " + this.categorie);
