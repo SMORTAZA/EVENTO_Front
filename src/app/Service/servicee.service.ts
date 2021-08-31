@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Servicee } from '../models/servicee';
 
 @Injectable({
   providedIn: 'root'
@@ -18,16 +19,22 @@ export class ServiceeService {
     return this.httpClient.delete(this.baseURL+"/"+id); 
   }
 
-  public save(user:any){
-    return this.httpClient.post(this.baseURL,user);
-  }
-
   public findOne(id:number):Observable<any>{
     return this.httpClient.get(this.baseURL+"/"+id);
   }
 
   public findOffresPrestataire(id:number):Observable<any>{
     return this.httpClient.get(this.baseURL+"/user/"+id);
+  }
+
+  public save(file:File,offre:Servicee,idPrestataire:string){
+    const formData: FormData = new FormData();
+    formData.append('tarif',""+offre.tarif);
+    formData.append('description', ""+offre.description);
+    formData.append('prestataire', ""+idPrestataire);
+    formData.append('file', file);
+    const req = new HttpRequest('POST',this.baseURL+"img",formData,{reportProgress:true, responseType:'text'});
+    return this.httpClient.request(req);
   }
 
 }
