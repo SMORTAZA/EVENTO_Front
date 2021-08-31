@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppService } from 'src/app/app.service';
 import { Evenement } from 'src/app/models/evenement';
 import { AdresseService } from 'src/app/Service/adresse.service';
@@ -11,9 +12,11 @@ import { EvenementService } from 'src/app/Service/evenement.service';
 })
 export class ClientComponent implements OnInit {
   align:String="center";  
-  constructor(private appService:AppService) { }
+  constructor(private appService:AppService, private router:Router) { }
 
   ngOnInit(): void {
+    if(!this.log()){
+      this.router.navigate(['/component/login']);}
   }
 
   log(){

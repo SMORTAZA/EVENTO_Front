@@ -24,6 +24,7 @@ import { ClientCreationEvenementComponent } from './client-creation-evenement/cl
 import { ClientConsultationEvenementComponent } from './client-consultation-evenement/client-consultation-evenement.component';
 import { LoginComponent } from './login/login.component';
 import { PrestataireEditOffreComponent } from './prestataire-edit-offre/prestataire-edit-offre.component';
+import { HomeComponent } from './home/home.component';
 
 export const ComponentsRoutes: Routes = [
 	{
@@ -193,14 +194,14 @@ export const ComponentsRoutes: Routes = [
 				path: 'prestataire-offres',
 				component: PrestataireOffresComponent,
 				data: {
-					title: 'Profil Prestataire',
+					title: 'Offres du Prestataire',
 				}
 			},
 			{
 				path: 'prestataire-profil',
 				component: PrestataireProfilComponent,
 				data: {
-					title: 'Offres Prestataire',
+					title: 'Profil du Prestataire',
 				}
 			},
 			{
@@ -215,6 +216,13 @@ export const ComponentsRoutes: Routes = [
 				component: LoginComponent,
 				data: {
 					title: 'Login',
+				}
+			},
+			{
+				path: 'home',
+				component: HomeComponent,
+				data: {
+					title: 'Accueil',
 				}
 			}
 		]

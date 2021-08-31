@@ -4,8 +4,7 @@ import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
 
@@ -14,7 +13,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     if(!this.authenticated()){
     this.router.navigate(['/component/login']);}
-    else if(this.isAdmin()&&!this.isClient()&&!this.isPrestataire()){
+    else{
+ if(this.isAdmin()&&!this.isClient()&&!this.isPrestataire()){
     this.router.navigate(['/component/admin']);}
     else if(!this.isAdmin()&&this.isClient()&&!this.isPrestataire()){
       this.router.navigate(['/component/client']);}
@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['/component/prestataire']);}
         else if(!this.isAdmin()&&this.isClient()&&this.isPrestataire()){
           this.router.navigate(['/component/prestataire']);}
+    }
   }
   authenticated() {
     return this.appService.authenticated;
