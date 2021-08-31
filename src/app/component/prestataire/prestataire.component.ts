@@ -15,6 +15,8 @@ export class PrestataireComponent implements OnInit {
   ngOnInit(): void {
     if(!this.authenticated()){
       this.router.navigate(['/component/login']);}
+      if (!this.isPrestataire()){
+        this.router.navigate(['/component/home']);}
   }
   authenticated() {
     return this.appService.authenticated;

@@ -17,6 +17,8 @@ export class ClientComponent implements OnInit {
   ngOnInit(): void {
     if(!this.log()){
       this.router.navigate(['/component/login']);}
+      if (!this.isClient()){
+        this.router.navigate(['/component/home']);}
   }
 
   log(){
@@ -25,5 +27,8 @@ export class ClientComponent implements OnInit {
     }else{
       return false;
     }
+  }
+  isClient() {
+    return this.appService.isClient;
   }
 }
