@@ -1,56 +1,66 @@
-<p>prestataire-offres works!</p>
-
-<button class="btn btn-block btn-success active" type="submit" (click)="toggleAddForm()">Ajouter une offre</button>
-<form [hidden]="affFormHidden" [formGroup]="editForm">
+<div class=" content">
     <div class=" row">
-        <div class=" col-md-6 pl-md-1">
-            <div class="form-group">
-                <label> Description </label>
-                <input class=" form-control" [(ngModel)]="offre.description" formControlName="description" placeholder="Description" type="text" />
-            </div>
-        </div>
-
-        <div class=" col-md-6 pl-md-1">
-            <div class="form-group">
-                <label> Tarif </label>
-                <input class=" form-control" [(ngModel)]="offre.tarif" formControlName="tarif" placeholder="Tarif" type="text" />
-            </div>
-        </div>
-    </div>
-    <div class=" row">
-        <div class=" col-md-6 pl-md-1">
-            <div class="form-group">
-                <label>Image</label>
-                <input class="form-control-file" type="file" name="fileUForm" (change)="selectFile($event)" />
-            </div>
-        </div>
-    </div>
-    <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-        <button type="button" class="btn btn-block btn-success" (click)="saveOffre()">Ajouter</button>
-    </div>
-</form>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Description</th>
-            <th>Tarif</th>
-            <th>Photo</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <tr *ngFor="let o of offresUser">
-            <td>{{o.description}}</td>
-            <td>{{o.tarif}}</td>
-            <td><img src="data:image/jpeg;base64,{{o.image}}" height="200px" width="200px"></td>
-            <td>
-                <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-                    <button type="button" class="btn btn-block btn-danger" (click)="deleteOffre(o.idService)">Supprimer</button>
-                    <button type="button" class="btn btn-block btn-primary" (click)="editOffre(o)">Editer</button>
+        <div class=" col-md-12">
+            <div class=" card">
+                <div class=" card-header">
+                    <h3 class=" title"><button class="btn btn-block btn-success active" type="submit" (click)="toggleAddForm()">Ajouter une offre</button></h3>
                 </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+                <div class=" card-body">
+                    <form [hidden]="affFormHidden" [formGroup]="editForm">
+                        <div class=" row">
+                            <div class=" col-md-6 pr-md-1">
+                                <div class="form-group">
+                                    <label> Description </label>
+                                    <input class=" form-control" [(ngModel)]="offre.description" formControlName="description" placeholder="Description" type="text" />
+                                </div>
+                            </div>
+
+                            <div class=" col-md-6 pr-md-1">
+                                <div class="form-group">
+                                    <label> Tarif </label>
+                                    <input class=" form-control" [(ngModel)]="offre.tarif" formControlName="tarif" placeholder="Tarif" type="text" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-6 pr-md-1">
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    <input class="form-control-file" type="file" name="fileUForm" (change)="selectFile($event)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+                            <button type="button" class="btn btn-block btn-success" (click)="saveOffre()">Ajouter</button>
+                        </div>
+                    </form>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Tarif</th>
+                                <th>Photo</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let o of offresUser">
+                                <td>{{o.description}}</td>
+                                <td>{{o.tarif}}</td>
+                                <td><img src="data:image/jpeg;base64,{{o.image}}" height="200px" width="200px"></td>
+                                <td>
+                                    <div>
+                                        <button type="button" class="btn btn-block btn-danger" (click)="deleteOffre(o.idService)">Supprimer</button>
+                                        <button type="button" class="btn btn-block btn-primary" (click)="editOffre(o)">Editer</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

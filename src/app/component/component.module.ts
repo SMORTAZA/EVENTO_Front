@@ -32,6 +32,7 @@ import { ClientConsultationEvenementComponent } from './client-consultation-even
 import { ClientCreationEvenementComponent } from './client-creation-evenement/client-creation-evenement.component';
 import { MatIconModule } from '@angular/material/icon';
 import { PrestataireEditOffreComponent } from './prestataire-edit-offre/prestataire-edit-offre.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [
@@ -67,7 +68,8 @@ import { PrestataireEditOffreComponent } from './prestataire-edit-offre/prestata
     PrestataireComponent,
     PrestataireProfilComponent,
     PrestataireOffresComponent,
-    PrestataireEditOffreComponent
+    PrestataireEditOffreComponent,
+    HomeComponent
   ]
 })
 export class ComponentsModule {}
