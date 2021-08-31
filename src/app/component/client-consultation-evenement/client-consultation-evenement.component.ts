@@ -49,7 +49,7 @@ export class ClientConsultationEvenementComponent implements OnInit {
     //this.reservationService.deleteByIdEvenement(id).subscribe(()=>{this.findAllReservations()});//marche pas je crois
     this.evenementService.delete(id).subscribe(()=>{this.findAllEvents()})
   }
-  saveEvents(){
+  saveEvents(){//
     this.evenementService.save(this.event).subscribe(()=>{this.findAllEvents();
     this.event=new Evenement();})
   }
