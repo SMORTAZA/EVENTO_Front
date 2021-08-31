@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AppService } from 'src/app/app.service';
 import { Avis } from 'src/app/models/avis';
 import { Evenement } from 'src/app/models/evenement';
 import { Reservation } from 'src/app/models/reservation';
@@ -30,7 +31,8 @@ export class ClientConsultationEvenementComponent implements OnInit {
   ville:String='Saint Cloud';
   constructor(private evenementService: EvenementService,
               private modalService: NgbModal,
-              private reservationService: ReservationService) { }
+              private reservationService: ReservationService,
+              private appService:AppService) { }
 
   ngOnInit(): void {
     this.findAllReservations();
@@ -85,6 +87,7 @@ export class ClientConsultationEvenementComponent implements OnInit {
       this.findAllEvents();
     }
   }
+
   findService(theEvent:Evenement){
     console.log("reservationExtra " + this.reservationExtra);
     console.log(theEvent.idEvenement);
@@ -97,6 +100,14 @@ export class ClientConsultationEvenementComponent implements OnInit {
         this.service = new Servicee();
         console.log('liste des services : ' + this.service)
       }
+    }
+  }
+
+  log(){
+    if(this.appService.isAdmin==false && this.appService.isClient==true && this.appService.isPrestataire ==false ){
+      return true;
+    }else{
+      return false;
     }
   }
 }
