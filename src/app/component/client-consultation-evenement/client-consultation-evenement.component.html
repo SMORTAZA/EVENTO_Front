@@ -12,7 +12,7 @@
                             <div class=" col-md-6 pr-md-1">
                                 <div class=" form-group">
                                     <label> Recherche par catégorie </label>
-                                    <select class=form-control [(ngModel)]="event.categorie" [ngModelOptions]="{standalone: true}">
+                                    <select  [disabled]="!log()" class=form-control [(ngModel)]="event.categorie" [ngModelOptions]="{standalone: true}">
                                         <option *ngFor="let c of categories" [ngValue]="c.value">
                                           {{c.value}}
                                         </option>
@@ -21,7 +21,7 @@
                             </div>
                             <div>
                                 <br>
-                                <button type="button" class="btn btn-rounded btn-outline-primary" (click)="getEventsByCategorie()">Rechercher</button>
+                                <button  [disabled]="!log()" type="button" class="btn btn-rounded btn-outline-primary" (click)="getEventsByCategorie()">Rechercher</button>
                             </div>
                         </div>
                     </form>
@@ -57,12 +57,12 @@
                                 <th class="border-top-0"></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody  [hidden]="!log()">
                             <tr *ngFor="let e of eventExtra">
                                 <!--<td>{{e.idEvenement}}</td>-->
                                 <td>
-                                    <button style="border:none;background:transparent" (click)="findService(e)">
-                                    <button
+                                    <button  [disabled]="!log()" style="border:none;background:transparent" (click)="findService(e)">
+                                    <button  [disabled]="!log()"
                                         type="button"
                                         style="border:none;background:transparent"
                                         ngbPopover={{e.description}}
@@ -87,11 +87,11 @@
                                                     </form>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                                                    <button  [disabled]="!log()" type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
                                                 </div>
                                             </ng-template>
                                         
-                                            <button class="btn btn-lg btn-outline-primary" style="border:none" (click)="open1(content1)">{{e.nom}}</button>
+                                            <button [disabled]="!log()"  class="btn btn-lg btn-outline-primary" style="border:none" (click)="open1(content1)">{{e.nom}}</button>
                                             <div class="m-t-20">{{ closeResult }}</div>
                                         </div>
                                     </button>
