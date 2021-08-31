@@ -1,0 +1,28 @@
+<form [formGroup]="editForm">
+    <div class=" row">
+        <div class=" col-md-6 pl-md-1">
+            <div class="form-group">
+                <label> Description </label>
+                <input class=" form-control" [(ngModel)]="offre.description" formControlName="description" placeholder="Description" type="text" />
+            </div>
+        </div>
+
+        <div class=" col-md-6 pl-md-1">
+            <div class="form-group">
+                <label> Tarif </label>
+                <input class=" form-control" [(ngModel)]="offre.tarif" formControlName="tarif" placeholder="Tarif" type="text" />
+            </div>
+        </div>
+    </div>
+    <div class=" row">
+        <div class=" col-md-6 pl-md-1">
+            <div class="form-group">
+                <label>Image</label>
+                <input class="form-control-file" type="file" name="fileUForm" (change)="selectFile($event)" />
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+        <button type="button" class="btn btn-block btn-success" (click)="updateOffre()">Mettre à jour</button>
+    </div>
+</form>

@@ -47,64 +47,10 @@
             <td><img src="data:image/jpeg;base64,{{o.image}}" height="200px" width="200px"></td>
             <td>
                 <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-                    <button type="button" class="btn btn-block btn-danger" (click)="deleteOffre(o.idOffre)">Supprimer</button>
-
-
-                    <!--- ------------------
-	Component as Content (NgbdModalBasicComponent)  
-	---------------------->
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <button type="button" class="btn btn-lg btn-outline-primary" (click)="open(content)">Editer</button>
-                                <ng-template #content2 let-modal>
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Modal title</h4>
-                                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-							<span aria-hidden="true">&times;</span>
-						</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>One fine body&hellip;</p>
-                                    </div>
-                                    <div class="modal-footer"><button type="button" class="btn btn-inverse" (click)="modal.dismiss('Cross click')">Close</button></div>
-                                </ng-template>
-
-                                <button class="btn btn-lg btn-outline-primary" (click)="open2(content2)">Launch demo modal</button>
-                            </div>
-                        </div>
-                    </div>
+                    <button type="button" class="btn btn-block btn-danger" (click)="deleteOffre(o.idService)">Supprimer</button>
+                    <button type="button" class="btn btn-block btn-primary" (click)="editOffre(o)">Editer</button>
                 </div>
-
             </td>
         </tr>
     </tbody>
 </table>
-
-<!--
-    <form [hidden]=[ formGroup]="editForm">
-            <div class=" row">
-                <div class=" col-md-6 pl-md-1">
-                    <div class="form-group">
-                        <label> Description </label>
-                        <input class=" form-control" [(ngModel)]="service.description" formControlName="description" placeholder="Description" type="text" />
-                    </div>
-                </div>
-
-                <div class=" col-md-6 pl-md-1">
-                    <div class="form-group">
-                        <label> Tarif </label>
-                        <input class=" form-control" [(ngModel)]="service.tarif" formControlName="tarif" placeholder="Tarif" type="text" />
-                    </div>
-                </div>
-            </div>
-            <div class=" row">
-                <div class=" col-md-6 pl-md-1">
-                    <div class="form-group">
-                        <label>Image</label>
-                        <input class="form-control-file" type="file" name="fileUForm" (change)="selectFile($event)" />
-                    </div>
-                </div>
-            </div>
-        </form>
--->

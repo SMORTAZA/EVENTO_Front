@@ -23,6 +23,7 @@ import { PrestataireProfilComponent } from './prestataire-profil/prestataire-pro
 import { ClientCreationEvenementComponent } from './client-creation-evenement/client-creation-evenement.component';
 import { ClientConsultationEvenementComponent } from './client-consultation-evenement/client-consultation-evenement.component';
 import { LoginComponent } from './login/login.component';
+import { PrestataireEditOffreComponent } from './prestataire-edit-offre/prestataire-edit-offre.component';
 
 export const ComponentsRoutes: Routes = [
 	{
@@ -200,6 +201,13 @@ export const ComponentsRoutes: Routes = [
 				component: PrestataireProfilComponent,
 				data: {
 					title: 'Offres Prestataire',
+				}
+			},
+			{
+				path: 'prestataire-edit-offre',
+				component: PrestataireEditOffreComponent,
+				data: {
+					title: 'Edition Offres Prestataire',
 				}
 			},
 			{
